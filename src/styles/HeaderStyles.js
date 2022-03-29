@@ -5,7 +5,7 @@ export const HeaderStyle = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;
-  padding: 0rem 6.25rem;
+  /* padding: 0rem 6.25rem; */
 
   ul {
     list-style-type: none;
@@ -16,11 +16,19 @@ export const HeaderStyle = styled.header`
   }
   li {
     padding: 0.25rem 1rem 2rem 1rem;
+    cursor: pointer;
+  }
+  li:hover {
+    color: #5ece7b;
+    border-bottom: 2px solid;
   }
   & li.active {
     color: #5ece7b;
-    border-bottom: 2px solid;
+    /* border-bottom: 2px solid; */
     font-weight: 600;
+  }
+  div img:hover {
+    cursor: pointer;
   }
   div span {
     font-weight: 500;
@@ -73,6 +81,9 @@ export const HeaderStyle = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  & div.cart div span:hover {
+    cursor: pointer;
   }
 `;
 
