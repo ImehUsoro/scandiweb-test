@@ -27,7 +27,6 @@ export const HeaderStyle = styled.header`
     color: #5ece7b;
     /* border-bottom: 2px solid; */
     font-weight: 600;
-    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
   }
   div img:hover {
     cursor: pointer;
@@ -56,8 +55,9 @@ export const HeaderStyle = styled.header`
     top: 1.4rem;
     left: -1.25rem;
     flex-direction: column;
-    width: 7.125rem;
-    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+    width: 7rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   & div.cart div.currency button {
     padding-top: 1.25rem;
