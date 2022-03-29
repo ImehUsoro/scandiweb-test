@@ -5,6 +5,7 @@ export const HeaderStyle = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;
+  margin-bottom: 5rem;
   /* padding: 0rem 6.25rem; */
 
   ul {
@@ -26,6 +27,7 @@ export const HeaderStyle = styled.header`
     color: #5ece7b;
     /* border-bottom: 2px solid; */
     font-weight: 600;
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
   }
   div img:hover {
     cursor: pointer;
@@ -55,8 +57,7 @@ export const HeaderStyle = styled.header`
     left: -1.25rem;
     flex-direction: column;
     width: 7.125rem;
-    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-      drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
   }
   & div.cart div.currency button {
     padding-top: 1.25rem;

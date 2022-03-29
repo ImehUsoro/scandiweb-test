@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const ProductCardStyle = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  img {
+    height: 20.625rem;
+    width: 22.125rem;
+    margin-bottom: 25px;
+  }
 `;
