@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { HeaderStyle } from "../styles/HeaderStyles";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+import CartContent from "./CartContent";
+// import { useRecoilState } from "recoil";
+// import { cartDropDown } from "../atoms/cartAtom";
+// import { currencyDropDown, currencyState } from "../atoms/currencyAtom";
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -32,36 +36,45 @@ export class Header extends Component {
             ) : (
               <RiArrowDropDownLine />
             )}
-            {this.state.showCurrency ? (
+            {this.state.showCurrency && (
               <div className="currency">
-                <button
+                <p
                   onClick={() => {
                     this.setState({ currency: "$" });
                   }}
                 >
                   $ USD
-                </button>
-                <button
+                </p>
+                <p
                   onClick={() => {
                     this.setState({ currency: "€" });
                   }}
                 >
                   € EUR
-                </button>
-                <button
+                </p>
+                <p
                   onClick={() => {
                     this.setState({ currency: "¥" });
                   }}
                 >
                   ¥ JPY
-                </button>
+                </p>
               </div>
-            ) : null}
+            )}
           </button>
 
-          <div>
+          <div
+            onClick={() => {
+              this.setState({ showCart: !this.state.showCart });
+            }}
+          >
             <img src="shopping-cart.png" alt="cart" />
             <span className="item-number">{2}</span>
+            {this.state.showCart && (
+              <div className="drop-down">
+                <CartContent />
+              </div>
+            )}
           </div>
         </div>
       </HeaderStyle>

@@ -6,6 +6,7 @@ export const HeaderStyle = styled.header`
   align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 5rem;
+  /* border: 1px solid red; */
   /* padding: 0rem 6.25rem; */
 
   ul {
@@ -25,7 +26,7 @@ export const HeaderStyle = styled.header`
   }
   & li.active {
     color: #5ece7b;
-    /* border-bottom: 2px solid; */
+    border-bottom: 2px solid;
     font-weight: 600;
   }
   div img:hover {
@@ -53,13 +54,13 @@ export const HeaderStyle = styled.header`
   & div.cart div.currency {
     position: absolute;
     top: 1.4rem;
-    left: -1.25rem;
+    left: -1.55rem;
     flex-direction: column;
     width: 7rem;
     padding-bottom: 1rem;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
-  & div.cart div.currency button {
+  & div.cart div.currency p {
     padding-top: 1.25rem;
     padding-right: 2.5rem;
     padding-left: 1.25rem;
@@ -68,7 +69,7 @@ export const HeaderStyle = styled.header`
     display: flex;
     position: relative;
   }
-  & div.cart div span {
+  & div.cart div span.item-number {
     position: absolute;
     top: -0.7rem;
     right: -0.7rem;
@@ -86,12 +87,16 @@ export const HeaderStyle = styled.header`
   & div.cart div span:hover {
     cursor: pointer;
   }
+  & div.cart div div.drop-down {
+    position: absolute;
+    top: 2.4rem;
+    left: -19rem;
+    width: 20.3125rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    padding: 0.5rem 1rem 1.25rem;
+    /* border: 1px solid red; */
+    /* background-color: #5ece7b; */
+  }
 `;
-
-/* div > a {
-  display: flex;
-  align-items: center;
-  color: red;
-} */
 
 /* border: 1px solid red; */

@@ -10,3 +10,9 @@ export const AppStyle = styled.div`
     display: inline-block;
   }
 `;
+
+// props
+// ${props => props.primary && css`
+//     background: palevioletred;
+//     color: white;
+//   `}
