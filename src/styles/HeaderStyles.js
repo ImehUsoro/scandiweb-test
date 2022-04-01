@@ -36,12 +36,12 @@ export const HeaderStyle = styled.header`
     font-weight: 500;
     font-size: large;
   }
-  & div.cart {
+  & div.checkout {
     display: flex;
     align-items: flex-start;
     gap: 1.375rem;
   }
-  & div.cart button {
+  & div.checkout button {
     padding: 0;
     border: none;
     background: none;
@@ -51,7 +51,7 @@ export const HeaderStyle = styled.header`
     align-items: flex-end;
     /* border: 1px solid red; */
   }
-  & div.cart div.currency {
+  & div.checkout div.currency {
     position: absolute;
     top: 1.4rem;
     left: -1.55rem;
@@ -60,16 +60,16 @@ export const HeaderStyle = styled.header`
     padding-bottom: 1rem;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
-  & div.cart div.currency p {
+  & div.checkout div.currency p {
     padding-top: 1.25rem;
     padding-right: 2.5rem;
     padding-left: 1.25rem;
   }
-  & div.cart div {
+  & div.checkout div {
     display: flex;
     position: relative;
   }
-  & div.cart div span.item-number {
+  & div.checkout div span.item-number {
     position: absolute;
     top: -0.7rem;
     right: -0.7rem;
@@ -84,10 +84,10 @@ export const HeaderStyle = styled.header`
     align-items: center;
     justify-content: center;
   }
-  & div.cart div span:hover {
+  & div.checkout div.cart span:hover {
     cursor: pointer;
   }
-  & div.cart div div.drop-down {
+  & div.checkout div.cart div.drop-down {
     position: absolute;
     top: 2.4rem;
     left: -19rem;

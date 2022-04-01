@@ -24,7 +24,7 @@ export class Header extends Component {
           <img src="cart-logo.png" alt="" />
         </div>
         {/* third */}
-        <div className="cart">
+        <div className="checkout">
           <button
             onClick={() => {
               this.setState({ showCurrency: !this.state.showCurrency });
@@ -64,6 +64,7 @@ export class Header extends Component {
           </button>
 
           <div
+            className="cart"
             onClick={() => {
               this.setState({ showCart: !this.state.showCart });
             }}

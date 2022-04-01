@@ -8,6 +8,7 @@ export class CartContent extends Component {
         <p>
           <span>My bag,</span> 2 items
         </p>
+        fill
       </CartContentStyles>
     );
   }
