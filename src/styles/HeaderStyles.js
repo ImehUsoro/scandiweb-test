@@ -6,6 +6,7 @@ export const HeaderStyle = styled.header`
   align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 5rem;
+  /* background-color: gray; */
   /* border: 1px solid red; */
   /* padding: 0rem 6.25rem; */
 
@@ -13,7 +14,7 @@ export const HeaderStyle = styled.header`
     list-style-type: none;
     display: flex;
     margin: 0;
-    padding: 0;
+    padding-left: 6.31rem;
     text-transform: uppercase;
   }
   li {
@@ -40,6 +41,7 @@ export const HeaderStyle = styled.header`
     display: flex;
     align-items: flex-start;
     gap: 1.375rem;
+    padding-right: 6.31rem;
   }
   & div.checkout button {
     padding: 0;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { HeaderStyle } from "../styles/HeaderStyles";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import CartContent from "./CartContent";
+import { Link } from "react-router-dom";
 // import { useRecoilState } from "recoil";
 // import { cartDropDown } from "../atoms/cartAtom";
 // import { currencyDropDown, currencyState } from "../atoms/currencyAtom";
@@ -20,9 +21,10 @@ export class Header extends Component {
           <li>Kids</li>
         </ul>
         {/* second */}
-        <div>
+        <Link to="/">
           <img src="cart-logo.png" alt="" />
-        </div>
+        </Link>
+
         {/* third */}
         <div className="checkout">
           <button
@@ -30,7 +32,7 @@ export class Header extends Component {
               this.setState({ showCurrency: !this.state.showCurrency });
             }}
           >
-            <span>{this.state.currency}</span>
+            <span>{this.props.currency}</span>
             {this.state.showCurrency ? (
               <RiArrowDropUpLine />
             ) : (
