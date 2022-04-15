@@ -4,20 +4,13 @@ import { AppStyle } from "./styles/AppStyle";
 import { Route, Link } from "react-router-dom";
 import ProductCard from "./components/ProductCard";
 import { GridContainer } from "./styles/GridContainer";
+import HeaderWrapper from "./components/HeaderWrapper";
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { currency: "$", showCurrency: false, showCart: false };
-  }
   render() {
     return (
       <AppStyle>
-        <Header
-          currency={this.state.currency}
-          showCurrency={this.state.showCurrency}
-          showCart={this.state.showCart}
-        />
+        <HeaderWrapper />
         <h1>Category name</h1>
         <GridContainer>
           <ProductCard src="apollo-running-shorts.png" />

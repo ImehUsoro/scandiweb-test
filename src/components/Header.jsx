@@ -9,9 +9,32 @@ import { Link } from "react-router-dom";
 export class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { currency: "$", showCurrency: false, showCart: false };
+    this.wrapperRef = React.createRef();
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+      this.props.setCurrencyDropDown(false);
+    }
   }
   render() {
+    const {
+      currency,
+      setCurrency,
+      cartDropDown,
+      setCartDropDown,
+      currencyDropDown,
+      setCurrencyDropDown,
+    } = this.props;
+
     return (
       <HeaderStyle>
         {/* first */}
@@ -29,34 +52,30 @@ export class Header extends Component {
         <div className="checkout">
           <button
             onClick={() => {
-              this.setState({ showCurrency: !this.state.showCurrency });
+              setCurrencyDropDown(!currencyDropDown);
             }}
           >
-            <span>{this.props.currency}</span>
-            {this.state.showCurrency ? (
-              <RiArrowDropUpLine />
-            ) : (
-              <RiArrowDropDownLine />
-            )}
-            {this.state.showCurrency && (
-              <div className="currency">
+            <span>{currency}</span>
+            {currencyDropDown ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+            {currencyDropDown && (
+              <div className="currency" ref={this.wrapperRef}>
                 <p
                   onClick={() => {
-                    this.setState({ currency: "$" });
+                    setCurrency("$");
                   }}
                 >
                   $ USD
                 </p>
                 <p
                   onClick={() => {
-                    this.setState({ currency: "€" });
+                    setCurrency("€");
                   }}
                 >
                   € EUR
                 </p>
                 <p
                   onClick={() => {
-                    this.setState({ currency: "¥" });
+                    setCurrency("¥");
                   }}
                 >
                   ¥ JPY
@@ -68,16 +87,16 @@ export class Header extends Component {
           <div
             className="cart"
             onClick={() => {
-              this.setState({ showCart: !this.state.showCart });
+              setCartDropDown(!cartDropDown);
             }}
           >
             <img src="shopping-cart.png" alt="cart" />
             <span className="item-number">{2}</span>
-            {this.state.showCart && (
+            {/* {cartDropDown && (
               <div className="drop-down">
                 <CartContent />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </HeaderStyle>

@@ -6,9 +6,6 @@ export const HeaderStyle = styled.header`
   align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 5rem;
-  /* background-color: gray; */
-  /* border: 1px solid red; */
-  /* padding: 0rem 6.25rem; */
 
   ul {
     list-style-type: none;

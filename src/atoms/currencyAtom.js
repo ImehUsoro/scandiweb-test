@@ -5,7 +5,7 @@ export const currencyState = atom({
   default: "$",
 });
 
-export const currencyDropDown = atom({
-  key: "currencyDropDown",
+export const currencyDropDownState = atom({
+  key: "currencyDropDownState",
   default: false,
 });
