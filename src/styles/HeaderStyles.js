@@ -11,7 +11,7 @@ export const HeaderStyle = styled.header`
     list-style-type: none;
     display: flex;
     margin: 0;
-    padding-left: 6.31rem;
+    /* padding-left: 6.31rem; */
     text-transform: uppercase;
   }
   li {
@@ -38,7 +38,7 @@ export const HeaderStyle = styled.header`
     display: flex;
     align-items: flex-start;
     gap: 1.375rem;
-    padding-right: 6.31rem;
+    /* padding-right: 6.31rem; */
   }
   & div.checkout button {
     padding: 0;
