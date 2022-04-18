@@ -5,13 +5,14 @@ import { Route, Link } from "react-router-dom";
 import ProductCard from "./components/ProductCard";
 import { GridContainer } from "./styles/GridContainer";
 import HeaderWrapper from "./components/HeaderWrapper";
+import Heading from "./components/Heading";
 
 export class App extends Component {
   render() {
     return (
       <AppStyle>
         <HeaderWrapper />
-        <h1>Category name</h1>
+        <Heading />
         <GridContainer>
           <ProductCard src="apollo-running-shorts.png" />
           <ProductCard src="brown.png" />

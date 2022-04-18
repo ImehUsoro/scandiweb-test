@@ -5,13 +5,12 @@ export const HeaderStyle = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;
-  margin-bottom: 5rem;
 
   ul {
     list-style-type: none;
     display: flex;
     margin: 0;
-    /* padding-left: 6.31rem; */
+    padding: 0;
     text-transform: uppercase;
   }
   li {

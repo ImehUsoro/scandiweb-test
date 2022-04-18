@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProductCardStyle = styled.div`
   display: flex;
   flex-direction: column;
-  /* padding: 1rem; */
+  padding: 1rem;
   max-width: 23rem;
 
   :hover {
