@@ -3,11 +3,7 @@ import { HeadingStyles } from "../styles/HeadingStyles";
 
 export class Heading extends Component {
   render() {
-    return (
-      <HeadingStyles>
-        <p>Category name</p>
-      </HeadingStyles>
-    );
+    return <HeadingStyles>Category name</HeadingStyles>;
   }
 }
 
