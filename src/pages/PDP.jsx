@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import Sizes from "../components/Sizes";
-import data from "../data";
 import { PDPstyle } from "../styles/PDP";
 export class PDP extends Component {
   render() {
-    const products = data.products;
-
     return (
       <PDPstyle>
         {/* First */}
@@ -21,12 +18,12 @@ export class PDP extends Component {
         {/* Third */}
         <div className="product-info">
           <p className="name">
-            <strong>Apollo</strong> <br /> Running Shorts
+            <strong>Apollo</strong> <br /> Running Short
           </p>
           <Sizes />
           <p className="price">
-            Price: <br />
-            <span>$50.00</span>
+            <span> PRICE:</span> <br />
+            $50.00
           </p>
           <button>ADD TO CART</button>
           <p className="description">

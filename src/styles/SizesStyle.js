@@ -1,10 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const SizesStyles = styled.div`
   & .sizes {
     display: flex;
     gap: 1.333rem;
-    margin-bottom: 2.5rem;
     /* border: 1px solid red; */
   }
   & .title {
@@ -16,7 +15,6 @@ export const SizesStyles = styled.div`
     border: 1px solid black;
     cursor: pointer;
     padding: 0.875rem 1.375rem;
-    font-size: ;
   }
   & div.sizes p:hover {
     background-color: black;

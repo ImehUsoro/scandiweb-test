@@ -1,7 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const PDPstyle = styled.section`
   display: flex;
+  margin-top: 5rem;
+  margin-bottom: 4.5rem;
   p {
     margin: 0;
   }
@@ -13,9 +15,14 @@ export const PDPstyle = styled.section`
     padding: 1rem 2rem;
     margin-top: 1.25rem;
     margin-bottom: 2.5rem;
+    color: white;
   }
   button:hover {
     background-color: #52b36c;
+  }
+  span {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1.125rem;
   }
   & div.product-display {
     display: flex;
@@ -28,8 +35,10 @@ export const PDPstyle = styled.section`
     width: 5rem;
     height: 5rem;
   }
-  & p.name {
+  & .name {
     margin-bottom: 2.6875rem;
+    font-size: 1.875rem;
+    line-height: 2.5rem;
   }
 
   & div.product {
@@ -44,9 +53,16 @@ export const PDPstyle = styled.section`
   & .product-info {
     max-width: 18.75rem;
   }
+  & .price {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+  }
   & .description {
     font-family: "Roboto", sans-serif;
     line-height: 1.6rem;
     font-weight: 400;
+    font-size: 16px;
   }
 `;

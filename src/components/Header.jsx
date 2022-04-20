@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { HeaderStyle } from "../styles/HeaderStyles";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-import CartContent from "./CartContent";
 import { Link } from "react-router-dom";
-// import { useRecoilState } from "recoil";
-// import { cartDropDown } from "../atoms/cartAtom";
-// import { currencyDropDown, currencyState } from "../atoms/currencyAtom";
+
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +35,7 @@ export class Header extends Component {
     return (
       <HeaderStyle>
         {/* first */}
+        {cartDropDown && <div className="cart-modal">test</div>}
         <ul>
           <li className="active">Women</li>
           <li>Men</li>
@@ -92,11 +90,6 @@ export class Header extends Component {
           >
             <img src="shopping-cart.png" alt="cart" />
             <span className="item-number">{2}</span>
-            {/* {cartDropDown && (
-              <div className="drop-down">
-                <CartContent />
-              </div>
-            )} */}
           </div>
         </div>
       </HeaderStyle>

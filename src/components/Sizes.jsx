@@ -5,7 +5,7 @@ export class Sizes extends Component {
   render() {
     return (
       <SizesStyles>
-        <p className="title">SIZE:</p>
+        {this.props.cart ? "" : <p className="title">SIZE:</p>}
         <div className="sizes">
           <p>XS</p>
           <p>S</p>
