@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import { AppStyle } from "./styles/AppStyle";
 import { Route, Link, Routes } from "react-router-dom";
-import ProductCard from "./pages/ProductCard";
+import ProductCard from "./pages/Products";
 import { GridContainer } from "./styles/GridContainer";
 import HeaderWrapper from "./components/HeaderWrapper";
 import Heading from "./components/Heading";

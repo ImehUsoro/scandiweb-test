@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const AppStyle = styled.div`
   margin-bottom: 12rem;
-  max-width: 1240px;
+  max-width: 77.5rem;
   margin: 0 auto;
 `;
 

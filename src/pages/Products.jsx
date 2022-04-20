@@ -6,14 +6,15 @@ import { GridContainer } from "../styles/GridContainer";
 export class ProductCard extends Component {
   render() {
     const products = data.products;
-    console.log("======");
-    products.forEach((prod) => console.log(prod));
     return (
       <GridContainer>
         {products.map((product) => (
-          <ProductCardStyle>
+          <ProductCardStyle key={product.id}>
+            <img className="icon" src="cart-icon.png" alt="" />
             <Link to={`/product/${product.name}`}>
-              <img src={product.src} alt={product.name} />
+              <div className="product-image">
+                <img src={product.src} alt={product.name} />
+              </div>
             </Link>
             <Link to={`/product/${product.name}`}>
               <p>Apollo Running Shorts</p>
