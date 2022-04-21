@@ -88,13 +88,4 @@ export const HeaderStyle = styled.header`
   & .checkout .cart span:hover {
     cursor: pointer;
   }
-  & .cart-modal {
-    background-color: white;
-    position: absolute;
-    top: 5.07rem;
-    right: 0;
-    width: 20.3125rem;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    padding: 0.5rem 1rem 1.25rem;
-  }
 `;

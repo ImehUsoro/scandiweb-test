@@ -5,5 +5,6 @@ export const ModalStyle = styled.div`
     props.primary &&
     css`
       background-color: #d3d3d7;
+      opacity: 0.3;
     `}
 `;

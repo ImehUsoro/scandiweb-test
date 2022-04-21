@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PDPstyle = styled.section`
   display: flex;
-  margin-top: 5rem;
+  padding-top: 5rem;
   margin-bottom: 4.5rem;
   p {
     margin: 0;

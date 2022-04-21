@@ -14,7 +14,7 @@ export const CartStyle = styled.div`
     font-weight: 700;
     font-size: 2rem;
     line-height: 2.5rem;
-    margin-top: 5rem;
+    padding-top: 5rem;
     margin-bottom: 3.75rem;
     color: #1d1f22;
   }

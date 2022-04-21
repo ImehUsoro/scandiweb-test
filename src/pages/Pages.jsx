@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
-import CartWrapper from "../components/CartWrapper";
-import PDPWrapper from "../components/PDPWrapper";
-import ProductsWrapper from "../components/ProductsWrapper";
-import Cart from "./Cart";
-import PDP from "./PDP";
+import CartWrapper from "../wrappers/CartWrapper";
+import PDPWrapper from "../wrappers/PDPWrapper";
+import ProductsWrapper from "../wrappers/ProductsWrapper";
 
 export class Pages extends Component {
   render() {

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { HeaderStyle } from "../styles/HeaderStyles";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import CartModal from "./CartModal";
+import CartModalWrapper from "../wrappers/CartModalWrapper";
 
 export class Header extends Component {
   constructor(props) {
@@ -11,11 +13,11 @@ export class Header extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
+    document.addEventListener("click", this.handleClickOutside, true);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
+    document.removeEventListener("click", this.handleClickOutside, true);
   }
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
@@ -31,11 +33,10 @@ export class Header extends Component {
       currencyDropDown,
       setCurrencyDropDown,
     } = this.props;
-
     return (
       <HeaderStyle>
         {/* first */}
-        {cartDropDown && <div className="cart-modal">test</div>}
+        {cartDropDown && <CartModalWrapper />}
         <ul>
           <li className="active">Women</li>
           <li>Men</li>

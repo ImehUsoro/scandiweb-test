@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AppStyle } from "./styles/AppStyle";
-import HeaderWrapper from "./components/HeaderWrapper";
+import HeaderWrapper from "./wrappers/HeaderWrapper";
 import Pages from "./pages/Pages";
 
 export class App extends Component {

@@ -2,7 +2,7 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import { cartDropDownState } from "../atoms/cartAtom";
 import { currencyDropDownState, currencyState } from "../atoms/currencyAtom";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const HeaderWrapper = () => {
   const [currency, setCurrency] = useRecoilState(currencyState);

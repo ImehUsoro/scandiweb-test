@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Sizes from "../components/Sizes";
-import { CartStyle } from "../styles/Cart";
+import { CartStyle } from "../styles/CartStyle";
 
 export class Cart extends Component {
   render() {
