@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Color from "../components/Color";
+import ProductName from "../components/ProductName";
+import ProductPrice from "../components/ProductPrice";
 import Sizes from "../components/Sizes";
 import { PDPstyle } from "../styles/PDP";
 export class PDP extends Component {
@@ -17,15 +21,13 @@ export class PDP extends Component {
         </div>
         {/* Third */}
         <div className="product-info">
-          <p className="name">
-            <strong>Apollo</strong> <br /> Running Short
-          </p>
-          <Sizes />
-          <p className="price">
-            <span> PRICE:</span> <br />
-            $50.00
-          </p>
-          <button>ADD TO CART</button>
+          <ProductName pdp />
+          <Sizes pdp />
+          <Color pdp />
+          <ProductPrice pdp />
+          <Link to={"/cart"}>
+            <button>ADD TO CART</button>
+          </Link>
           <p className="description">
             Fine stunning women's cocktail dress and party dresses. Stand out in
             lace and metallic cocktail and party dresses from all your favorite

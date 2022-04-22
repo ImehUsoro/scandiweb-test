@@ -8,14 +8,18 @@ export const CartModalStyles = styled.div`
   right: 0;
   max-width: 20.3125rem;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  padding: 1rem 1rem 1.25rem;
+  padding: 2rem 1rem;
   z-index: 10;
 
   p {
     margin: 0;
   }
   & .heading {
-    margin-bottom: 1.5625rem;
+    margin-bottom: 2rem;
+  }
+  & .cart-item {
+    display: flex;
+    justify-content: space-between;
   }
   & .total {
     display: flex;

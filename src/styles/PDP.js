@@ -13,16 +13,11 @@ export const PDPstyle = styled.section`
     background-color: #5ece7b;
     border: none;
     padding: 1rem 2rem;
-    margin-top: 1.25rem;
     margin-bottom: 2.5rem;
     color: white;
   }
   button:hover {
     background-color: #52b36c;
-  }
-  span {
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 1.125rem;
   }
   & div.product-display {
     display: flex;
@@ -52,12 +47,6 @@ export const PDPstyle = styled.section`
   }
   & .product-info {
     max-width: 18.75rem;
-  }
-  & .price {
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
-    line-height: 2rem;
-    font-weight: 700;
   }
   & .description {
     font-family: "Roboto", sans-serif;

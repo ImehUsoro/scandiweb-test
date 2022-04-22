@@ -57,14 +57,20 @@ export const HeaderStyle = styled.header`
     top: 1.4rem;
     left: -1.55rem;
     flex-direction: column;
-    width: 7rem;
-    padding-bottom: 1rem;
+    width: 7.125rem;
+    padding: 0.875rem 0;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   & .checkout .currency p {
-    padding-top: 1.25rem;
-    padding-right: 2.5rem;
-    padding-left: 1.25rem;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 6px 0;
+    padding: 0.5rem 2.375rem 0.5rem 1.25rem;
+    text-align: center;
+  }
+  & .checkout .currency p:hover {
+    background-color: #eeeeee;
   }
   & .checkout div {
     display: flex;

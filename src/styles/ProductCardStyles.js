@@ -35,7 +35,7 @@ export const ProductCardStyle = styled.div`
     position: absolute;
     right: 10%;
     bottom: 11.5%;
-    z-index: 10;
+    z-index: 2;
     width: 3.25rem;
     height: 3.25rem;
     cursor: pointer;

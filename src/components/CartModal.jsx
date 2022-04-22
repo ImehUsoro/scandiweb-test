@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { CartModalStyles, StyledLink } from "../styles/CartModal";
+import CartItem from "./CartItem";
+import CartItemModal from "./CartItemModal";
+import Color from "./Color";
+import ProductDisplay from "./ProductDisplay";
+import ProductName from "./ProductName";
+import ProductPrice from "./ProductPrice";
+import Sizes from "./Sizes";
 
 export class CartModal extends Component {
   constructor(props) {
@@ -21,25 +27,46 @@ export class CartModal extends Component {
     }
   }
   render() {
-    console.log(this.props.cartDropDown);
-
     return (
       <CartModalStyles>
         <div ref={this.wrapperRef}>
           <p className="heading">
             <span>My Bag, </span>2 items
           </p>
+          {/* Cart Item(s) */}
+          <div className="cart-item">
+            {/* Left */}
+            <div>
+              <ProductName modal />
+              <ProductPrice modal />
+              <Sizes modal />
+              <Color modal />
+            </div>
+            {/* Right */}
+            <ProductDisplay modal />
+          </div>
           {/* Total */}
           <div className="total">
             <p>Total</p>
             <span>$100.00</span>
           </div>
           {/* Bottom */}
-          <div className="actions">
+          <div
+            className="actions"
+            onClick={() => {
+              this.props.setCartDropDown(false);
+            }}
+          >
             <StyledLink className="view-bag" to={"/cart"}>
               <p>View Bag</p>
             </StyledLink>
-            <div className="checkout">
+            <div
+              className="checkout"
+              onClick={() => {
+                alert("Your Item has been shipped");
+                this.props.setCartDropDown(false);
+              }}
+            >
               <p>Check out</p>
             </div>
           </div>
