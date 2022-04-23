@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SizesStyles = styled.div`
   span {
+    font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: center;

@@ -33,7 +33,6 @@ export class App extends Component {
     return (
       <ApolloProvider client={client}>
         <AppStyle>
-          <HeaderWrapper />
           <Pages />
           {/* <Categories /> */}
         </AppStyle>

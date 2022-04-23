@@ -6,6 +6,8 @@ export const HeaderStyle = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-top: 1.5rem;
+  max-width: 77.5rem;
+  margin: auto;
 
   ul {
     list-style-type: none;

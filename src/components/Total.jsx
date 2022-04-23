@@ -14,7 +14,13 @@ export class Total extends Component {
         <p className="total">
           Total: <strong>$200.00</strong>
         </p>
-        <button>ORDER</button>
+        <button
+          onClick={() => {
+            alert("Your Item has been shipped");
+          }}
+        >
+          ORDER
+        </button>
       </TotalStyle>
     );
   }
