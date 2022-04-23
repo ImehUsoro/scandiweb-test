@@ -16,7 +16,7 @@ export class PDP extends Component {
           <img src="https://picsum.photos/80" alt="" />
         </div>
         {/* Second */}
-        <div className="product">
+        <div className="product-image">
           <img src="https://picsum.photos/610/512" alt="" />
         </div>
         {/* Third */}

@@ -6,12 +6,18 @@ export class ProductDisplay extends Component {
     const { modal, cart } = this.props;
     return (
       <ProductDisplayStyle>
+        {/* Left */}
         <div className="count-section">
-          <span className={`${modal ? "modal-action" : "action"}`}>+</span>
+          <span className={`${modal ? "modal-action btn" : "action btn"}`}>
+            +
+          </span>
           <span className="count">1</span>
-          <span className={`${modal ? "modal-action" : "action"}`}>-</span>
+          <span className={`${modal ? "modal-action btn" : "action btn"}`}>
+            -
+          </span>
         </div>
-        <div className="">
+        {/* Right */}
+        <div>
           <img
             src={`${
               modal

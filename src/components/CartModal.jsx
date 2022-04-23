@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CartModalStyles, StyledLink } from "../styles/CartModal";
+import { CartModalStyles, StyledLink } from "../styles/CartModalStyles";
 import CartItem from "./CartItem";
 import CartItemModal from "./CartItemModal";
 import Color from "./Color";
@@ -35,15 +35,11 @@ export class CartModal extends Component {
           </p>
           {/* Cart Item(s) */}
           <div className="cart-item">
-            {/* Left */}
-            <div>
-              <ProductName modal />
-              <ProductPrice modal />
-              <Sizes modal />
-              <Color modal />
-            </div>
-            {/* Right */}
-            <ProductDisplay modal />
+            <CartItemModal />
+            <CartItemModal />
+            <CartItemModal />
+            <CartItemModal />
+            <CartItemModal />
           </div>
           {/* Total */}
           <div className="total">

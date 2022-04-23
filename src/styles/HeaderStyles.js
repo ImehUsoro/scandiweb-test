@@ -78,7 +78,7 @@ export const HeaderStyle = styled.header`
   }
   & .checkout .item-number {
     position: absolute;
-    top: -0.7rem;
+    top: -0.6rem;
     right: -0.7rem;
     background: black;
     color: white;

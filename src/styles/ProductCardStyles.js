@@ -33,9 +33,8 @@ export const ProductCardStyle = styled.div`
   }
   & .icon {
     position: absolute;
-    right: 10%;
+    right: 5%;
     bottom: 11.5%;
-    z-index: 2;
     width: 3.25rem;
     height: 3.25rem;
     cursor: pointer;

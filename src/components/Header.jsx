@@ -3,7 +3,8 @@ import { HeaderStyle } from "../styles/HeaderStyles";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import CartModalWrapper from "../wrappers/CartModalWrapper";
-
+import logo from "../images/VSF.svg";
+import cart from "../images/cart.svg";
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -35,8 +36,9 @@ export class Header extends Component {
 
     return (
       <HeaderStyle>
-        {/* first */}
+        {/* Modal */}
         {cartDropDown && <CartModalWrapper />}
+        {/* first */}
         <ul>
           <li className="active">Women</li>
           <li>Men</li>
@@ -44,7 +46,7 @@ export class Header extends Component {
         </ul>
         {/* second */}
         <Link to="/">
-          <img src="cart-logo.png" alt="" />
+          <img src={logo} alt="logo" />
         </Link>
 
         {/* third */}
@@ -89,7 +91,7 @@ export class Header extends Component {
               setCartDropDown(!cartDropDown);
             }}
           >
-            <img src="shopping-cart.png" alt="cart" />
+            <img src={cart} alt="cart" />
             <span className="item-number">{2}</span>
           </div>
         </div>

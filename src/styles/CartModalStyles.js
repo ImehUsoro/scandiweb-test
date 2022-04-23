@@ -19,13 +19,14 @@ export const CartModalStyles = styled.div`
   }
   & .cart-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 2.5rem;
   }
   & .total {
     display: flex;
     justify-content: space-between;
     margin-top: 2.625rem;
-    margin-bottom: 2.1875rem;
+    margin-bottom: 2rem;
   }
   & .total p {
     font-family: "Roboto", sans-serif;

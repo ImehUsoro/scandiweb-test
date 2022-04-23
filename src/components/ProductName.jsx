@@ -11,8 +11,10 @@ export class ProductName extends Component {
             modal
               ? "modal-product-name"
               : pdp
-              ? "pdp-product-name"
-              : "product-name"
+              ? "pdp-product-name product-name-bold"
+              : cart
+              ? "cart-product-name product-name-bold"
+              : ""
           }`}
         >
           <strong>Apollo</strong> <br /> Running Short

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Heading from "../components/Heading";
 import { ProductCardStyle, StyledLink } from "../styles/ProductCardStyles";
 import data from "../data";
+import cart from "../images/icon.svg";
 import { GridContainer } from "../styles/GridContainer";
 export class ProductCard extends Component {
   render() {
@@ -13,7 +14,7 @@ export class ProductCard extends Component {
         <GridContainer>
           {products.map((product) => (
             <ProductCardStyle key={product.id}>
-              <img className="icon" src="cart-icon.png" alt="" />
+              <img className="icon" src={cart} alt="" />
               <Link to={`/product/${product.name}`}>
                 <div className="product-image">
                   <img src={product.src} alt={product.name} />

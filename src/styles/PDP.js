@@ -19,32 +19,25 @@ export const PDPstyle = styled.section`
   button:hover {
     background-color: #52b36c;
   }
-  & div.product-display {
+  & .product-display {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
     margin-right: 2.5rem;
   }
-  & div.product-display img {
+  & .product-display img {
     cursor: pointer;
     width: 5rem;
     height: 5rem;
   }
-  & .name {
-    margin-bottom: 2.6875rem;
-    font-size: 1.875rem;
-    line-height: 2.5rem;
-  }
-
-  & div.product {
+  & .product-image {
     margin-right: 6.25rem;
-  }
-  & div.product img {
     cursor: pointer;
     width: 38.125rem;
     height: 31.9375rem;
     object-fit: contain;
   }
+
   & .product-info {
     max-width: 18.75rem;
   }
