@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { AppStyle } from "./styles/AppStyle";
-import HeaderWrapper from "./wrappers/HeaderWrapper";
 import Pages from "./pages/Pages";
 import {
   ApolloClient,

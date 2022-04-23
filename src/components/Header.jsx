@@ -8,7 +8,8 @@ import cart from "../images/cart.svg";
 export class Header extends Component {
   constructor(props) {
     super(props);
-    this.wrapperRef = React.createRef();
+    this.currencyRef = React.createRef();
+    this.cartRef = React.createRef();
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
@@ -20,8 +21,11 @@ export class Header extends Component {
     document.removeEventListener("click", this.handleClickOutside, true);
   }
   handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+    if (this.currencyRef && !this.currencyRef.current.contains(event.target)) {
       this.props.setCurrencyDropDown(false);
+    }
+    if (this.cartRef && !this.cartRef.current.contains(event.target)) {
+      this.props.setCartDropDown(false);
     }
   }
   render() {
@@ -33,7 +37,6 @@ export class Header extends Component {
       currencyDropDown,
       setCurrencyDropDown,
     } = this.props;
-
     return (
       <HeaderStyle>
         {/* Modal */}
@@ -52,6 +55,7 @@ export class Header extends Component {
         {/* third */}
         <div className="checkout">
           <button
+            ref={this.currencyRef}
             onClick={() => {
               setCurrencyDropDown(!currencyDropDown);
             }}
@@ -59,7 +63,7 @@ export class Header extends Component {
             <span>{currency}</span>
             {currencyDropDown ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
             {currencyDropDown && (
-              <div className="currency" ref={this.wrapperRef}>
+              <div className="currency">
                 <p
                   onClick={() => {
                     setCurrency("$");
@@ -87,6 +91,7 @@ export class Header extends Component {
 
           <div
             className="cart"
+            ref={this.cartRef}
             onClick={() => {
               setCartDropDown(!cartDropDown);
             }}
