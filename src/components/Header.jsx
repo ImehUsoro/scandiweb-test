@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import CartModalWrapper from "../wrappers/CartModalWrapper";
 import logo from "../images/VSF.svg";
 import cart from "../images/cart.svg";
+import { StyledLink } from "../styles/ProductCardStyles";
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -24,12 +25,10 @@ export class Header extends Component {
     if (this.currencyRef && !this.currencyRef.current.contains(event.target)) {
       this.props.setCurrencyDropDown(false);
     }
-    if (this.cartRef && !this.cartRef.current.contains(event.target)) {
-      this.props.setCartDropDown(false);
-    }
   }
   render() {
     const {
+      headers,
       currency,
       setCurrency,
       cartDropDown,
@@ -43,16 +42,20 @@ export class Header extends Component {
         {cartDropDown && <CartModalWrapper />}
         {/* first */}
         <ul>
-          <li className="active">Women</li>
-          <li>Men</li>
-          <li>Kids</li>
+          {headers?.map((item) => (
+            <StyledLink to={`/${item.name}`} key={item.name}>
+              <li className={`${item.name === "all" ? "active" : ""}`}>
+                {item.name}
+              </li>
+            </StyledLink>
+          ))}
         </ul>
         {/* second */}
-        <Link to="/">
+        <Link to="/all">
           <img src={logo} alt="logo" />
         </Link>
-
         {/* third */}
+
         <div className="checkout">
           <button
             ref={this.currencyRef}
@@ -91,7 +94,6 @@ export class Header extends Component {
 
           <div
             className="cart"
-            ref={this.cartRef}
             onClick={() => {
               setCartDropDown(!cartDropDown);
             }}

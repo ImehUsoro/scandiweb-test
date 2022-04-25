@@ -19,6 +19,7 @@ export const HeaderStyle = styled.header`
   li {
     padding: 0.25rem 1rem 2rem 1rem;
     cursor: pointer;
+    border-bottom: 2px solid transparent;
   }
   li:hover {
     color: #5ece7b;

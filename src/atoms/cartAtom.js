@@ -9,3 +9,13 @@ export const itemsInCartState = atom({
   key: "itemsInCartState",
   default: 0,
 });
+
+export const selectedProductsState = atom({
+  key: "selectedProductsState",
+  default: {},
+});
+
+export const totalPriceState = atom({
+  key: "totalPriceState",
+  default: "",
+});

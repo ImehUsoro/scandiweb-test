@@ -11,6 +11,7 @@ export class Pages extends Component {
         <Route path="/" element={<ProductsWrapper />} />
         <Route path="/product/:slug" element={<PDPWrapper />} />
         <Route path="/cart" element={<CartWrapper />} />
+        <Route path="/:category" element={<ProductsWrapper />} />
       </Routes>
     );
   }

@@ -2,28 +2,36 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Heading from "../components/Heading";
 import { ProductCardStyle, StyledLink } from "../styles/ProductCardStyles";
-import data from "../data";
 import cart from "../images/icon.svg";
 import { GridContainer } from "../styles/GridContainer";
-export class ProductCard extends Component {
+import { useParams } from "react-router-dom";
+
+function withParams(Component) {
+  return (props) => <Component {...props} params={useParams()} />;
+}
+
+export class Products extends Component {
   render() {
-    const products = data.products;
+    const { all, clothes, tech } = this.props;
+    let { category } = this.props.params;
+
+    console.log(all);
     return (
       <>
         <Heading />
         <GridContainer>
-          {products.map((product) => (
+          {all?.products.map((product) => (
             <ProductCardStyle key={product.id}>
               <img className="icon" src={cart} alt="" />
               <Link to={`/product/${product.name}`}>
                 <div className="product-image">
-                  <img src={product.src} alt={product.name} />
+                  <img src={product.gallery[0]} alt={product.name} />
                 </div>
               </Link>
               <StyledLink to={`/product/${product.name}`}>
-                <p className="product-name">Apollo Running Shorts</p>
+                <p className="product-name">{product.name}</p>
+                <p>{`$50`}</p>
               </StyledLink>
-              <p className="price">$50.00</p>
             </ProductCardStyle>
           ))}
         </GridContainer>
@@ -32,4 +40,4 @@ export class ProductCard extends Component {
   }
 }
 
-export default ProductCard;
+export default withParams(Products);

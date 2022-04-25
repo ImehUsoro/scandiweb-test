@@ -34,11 +34,15 @@ export const ProductCardStyle = styled.div`
   & .icon {
     position: absolute;
     right: 5%;
-    bottom: 11.5%;
+    /* bottom: 11.5%; */
+    bottom: 9%;
     width: 3.25rem;
     height: 3.25rem;
     cursor: pointer;
     opacity: 0;
+  }
+  & .product-image {
+    object-fit: contain;
   }
 `;
 
