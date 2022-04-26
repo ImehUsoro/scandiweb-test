@@ -15,7 +15,15 @@ export class Products extends Component {
     const { all, clothes, tech } = this.props;
     let { category } = this.props.params;
 
-    console.log(all);
+    const allPrices = all?.products.map((product) => {
+      return {
+        price: product.prices,
+      };
+    });
+    console.log(allPrices);
+
+    // all?.products.map((product) => console.log(product));
+
     return (
       <>
         <Heading />
@@ -30,7 +38,7 @@ export class Products extends Component {
               </Link>
               <StyledLink to={`/product/${product.name}`}>
                 <p className="product-name">{product.name}</p>
-                <p>{`$50`}</p>
+                <p>{"50"}</p>
               </StyledLink>
             </ProductCardStyle>
           ))}
