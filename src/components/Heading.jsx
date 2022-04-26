@@ -3,7 +3,8 @@ import { HeadingStyles } from "../styles/HeadingStyles";
 
 export class Heading extends Component {
   render() {
-    return <HeadingStyles>Category name</HeadingStyles>;
+    const { name } = this.props;
+    return <HeadingStyles>{!name ? "all" : name}</HeadingStyles>;
   }
 }
 

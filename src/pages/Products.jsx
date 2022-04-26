@@ -5,6 +5,9 @@ import { ProductCardStyle, StyledLink } from "../styles/ProductCardStyles";
 import cart from "../images/icon.svg";
 import { GridContainer } from "../styles/GridContainer";
 import { useParams } from "react-router-dom";
+import Tech from "./Tech";
+import Clothes from "./Clothes";
+import AllProducts from "./AllProducts";
 
 function withParams(Component) {
   return (props) => <Component {...props} params={useParams()} />;
@@ -17,31 +20,25 @@ export class Products extends Component {
 
     const allPrices = all?.products.map((product) => {
       return {
-        price: product.prices,
+        price: product.prices[1],
       };
     });
-    console.log(allPrices);
-
-    // all?.products.map((product) => console.log(product));
+    // console.log(allPrices);
+    // console.log(category);
 
     return (
       <>
-        <Heading />
+        <Heading name={category} />
         <GridContainer>
-          {all?.products.map((product) => (
-            <ProductCardStyle key={product.id}>
-              <img className="icon" src={cart} alt="" />
-              <Link to={`/product/${product.name}`}>
-                <div className="product-image">
-                  <img src={product.gallery[0]} alt={product.name} />
-                </div>
-              </Link>
-              <StyledLink to={`/product/${product.name}`}>
-                <p className="product-name">{product.name}</p>
-                <p>{"50"}</p>
-              </StyledLink>
-            </ProductCardStyle>
-          ))}
+          {category === "all" ? (
+            <AllProducts all={all} />
+          ) : category === "clothes" ? (
+            <Clothes clothes={clothes} />
+          ) : category === "tech" ? (
+            <Tech tech={tech} />
+          ) : (
+            <AllProducts all={all} />
+          )}
         </GridContainer>
       </>
     );

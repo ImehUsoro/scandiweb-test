@@ -19,7 +19,7 @@ export const ProductDisplayStyle = styled.div`
   & .action {
     width: 2.8125rem;
     height: 2.8125rem;
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: 300;
   }
   & .modal-action {

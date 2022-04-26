@@ -34,7 +34,6 @@ export const ProductCardStyle = styled.div`
   & .icon {
     position: absolute;
     right: 5%;
-    /* bottom: 11.5%; */
     bottom: 8%;
     width: 3.25rem;
     height: 3.25rem;
@@ -43,8 +42,8 @@ export const ProductCardStyle = styled.div`
   }
   & .product-image {
     object-fit: contain;
-    width: 354px;
-    height: 330px;
+    width: 22.125rem;
+    height: 20.625rem;
     margin-bottom: 1.5rem;
   }
 `;

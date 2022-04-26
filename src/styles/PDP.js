@@ -45,6 +45,6 @@ export const PDPstyle = styled.section`
     font-family: "Roboto", sans-serif;
     line-height: 1.6rem;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;

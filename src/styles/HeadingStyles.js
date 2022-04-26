@@ -5,4 +5,5 @@ export const HeadingStyles = styled.p`
   font-weight: 400;
   display: inline-block;
   margin: 5rem 0rem 6.4375rem 0rem;
+  text-transform: capitalize;
 `;

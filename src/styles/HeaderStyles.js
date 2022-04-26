@@ -63,12 +63,13 @@ export const HeaderStyle = styled.header`
     width: 7.125rem;
     padding: 0.875rem 0;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    z-index: 2;
   }
   & .checkout .currency p {
     font-family: "Raleway", sans-serif;
     font-size: 1.125rem;
     font-weight: 500;
-    margin: 6px 0;
+    margin: 0.375rem 0;
     padding: 0.5rem 2.375rem 0.5rem 1.25rem;
     text-align: center;
   }
@@ -89,7 +90,7 @@ export const HeaderStyle = styled.header`
     height: 1.252rem;
     border-radius: 100%;
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     display: flex;
     align-items: center;
     justify-content: center;

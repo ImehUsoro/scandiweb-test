@@ -72,21 +72,36 @@ export class Header extends Component {
                     setCurrency("$");
                   }}
                 >
-                  $ USD
+                  {" "}
+                  USD
                 </p>
                 <p
                   onClick={() => {
-                    setCurrency("€");
+                    setCurrency("£");
                   }}
                 >
-                  € EUR
+                  GBP
+                </p>
+                <p
+                  onClick={() => {
+                    setCurrency("A$");
+                  }}
+                >
+                  AUD
                 </p>
                 <p
                   onClick={() => {
                     setCurrency("¥");
                   }}
                 >
-                  ¥ JPY
+                  JPY
+                </p>
+                <p
+                  onClick={() => {
+                    setCurrency("₽");
+                  }}
+                >
+                  RUB
                 </p>
               </div>
             )}
