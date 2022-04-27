@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { CartModalStyles, StyledLink } from "../styles/CartModalStyles";
+import { CartModalStyles } from "../styles/CartModalStyles";
+import { StyledLink } from "../styles/ProductCardStyles";
 import CartItemModal from "./CartItemModal";
 
 export class CartModal extends Component {

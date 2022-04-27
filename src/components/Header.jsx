@@ -6,6 +6,7 @@ import CartModalWrapper from "../wrappers/CartModalWrapper";
 import logo from "../images/VSF.svg";
 import cart from "../images/cart.svg";
 import { StyledLink } from "../styles/ProductCardStyles";
+
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -30,12 +31,14 @@ export class Header extends Component {
     const {
       headers,
       currency,
+      category,
       setCurrency,
       cartDropDown,
       setCartDropDown,
       currencyDropDown,
       setCurrencyDropDown,
     } = this.props;
+    // console.log(category);
     return (
       <HeaderStyle>
         {/* Modal */}
@@ -44,14 +47,14 @@ export class Header extends Component {
         <ul>
           {headers?.map((item) => (
             <StyledLink to={`/${item.name}`} key={item.name}>
-              <li className={`${item.name === "all" ? "active" : ""}`}>
+              <li className={`${item.name === category ? "active" : ""}`}>
                 {item.name}
               </li>
             </StyledLink>
           ))}
         </ul>
         {/* second */}
-        <Link to="/all">
+        <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
         {/* third */}

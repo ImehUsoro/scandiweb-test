@@ -6,20 +6,25 @@ import cart from "../images/icon.svg";
 export class AllProducts extends Component {
   render() {
     const { all } = this.props;
+
     return (
       <>
         {all?.products.map((product) => (
           <ProductCardStyle key={product.id}>
-            <img className="icon" src={cart} alt="" />
-            <Link to={`/product/${product.name}`}>
-              <div className="product-image">
-                <img src={product.gallery[0]} alt={product.name} />
-              </div>
-            </Link>
-            <StyledLink to={`/product/${product.name}`}>
-              <p className="product-name">{product.name}</p>
-              <p>$50.00</p>
-            </StyledLink>
+            <div className={!product.inStock ? "no-stock" : ""}>
+              <img className="icon" src={cart} alt="" />
+              {!product.inStock && <p className="out-of-stock">OUT OF STOCK</p>}
+              <StyledLink to={`/product/${product.id}`}>
+                <div className="product-image">
+                  <img src={product.gallery[0]} alt={product.name} />
+                </div>
+              </StyledLink>
+              <StyledLink to={`/product/${product.id}`}>
+                <p className="product-name">{product.name}</p>
+                {/* {console.log(product)}
+              {console.log(product.prices.map((item) => item))} */}
+              </StyledLink>
+            </div>
           </ProductCardStyle>
         ))}
       </>
@@ -28,3 +33,5 @@ export class AllProducts extends Component {
 }
 
 export default AllProducts;
+
+//  primary={product.inStock ? false : true}

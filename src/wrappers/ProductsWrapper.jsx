@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { currencyDropDownState, currencyState } from "../atoms/currencyAtom";
 import { cartDropDownState } from "../atoms/cartAtom";
 import {
@@ -11,28 +11,24 @@ import { ModalStyle } from "../styles/ModalStyle";
 import { useQuery } from "@apollo/client";
 import { ALL_PRODUCTS } from "../components/GraphQL/Queries";
 import Products from "../pages/Products";
+import { categoryState } from "../atoms/categoryAtom";
 
 const ProductsWrapper = () => {
-  const [cartDropDown, setCartDropDown] = useRecoilState(cartDropDownState);
-  const [currency, setCurrency] = useRecoilState(currencyState);
   const { error, loading, data } = useQuery(ALL_PRODUCTS);
-  const [allProducts, setAllProducts] = useRecoilState(allProductsState);
-  const [clothesProducts, setClothesProducts] =
-    useRecoilState(clothesProductsState);
-  const [techProducts, setTechProducts] = useRecoilState(techProductsState);
-
-  useEffect(() => {
-    setAllProducts(data?.categories[0].products);
-    setClothesProducts(data?.categories[1].products);
-    setTechProducts(data?.categories[2].products);
-  }, []);
+  const cartDropDown = useRecoilValue(cartDropDownState);
+  // const [currency, setCurrency] = useRecoilState(currencyState);
+  // const [allProducts, setAllProducts] = useRecoilState(allProductsState);
+  // const [clothesProducts, setClothesProducts] =
+  // useRecoilState(clothesProductsState);
+  // const [techProducts, setTechProducts] = useRecoilState(techProductsState);
+  // const [category, setCategory] = useRecoilState(categoryState);
 
   return (
     <ModalStyle primary={cartDropDown ? true : false}>
       <Products
         all={data?.categories[0]}
-        clothes={data?.categories[1]}
         tech={data?.categories[2]}
+        clothes={data?.categories[1]}
         currencyState={currencyState}
       />
     </ModalStyle>

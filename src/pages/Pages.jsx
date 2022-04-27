@@ -9,7 +9,7 @@ export class Pages extends Component {
     return (
       <Routes>
         <Route path="/" element={<ProductsWrapper />} />
-        <Route path="/product/:slug" element={<PDPWrapper />} />
+        <Route path="/product/:id" element={<PDPWrapper />} />
         <Route path="/cart" element={<CartWrapper />} />
         <Route path="/:category" element={<ProductsWrapper />} />
       </Routes>

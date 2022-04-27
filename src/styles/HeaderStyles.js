@@ -23,7 +23,6 @@ export const HeaderStyle = styled.header`
   }
   li:hover {
     color: #5ece7b;
-    border-bottom: 2px solid;
   }
   & .active {
     color: #5ece7b;

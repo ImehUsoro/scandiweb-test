@@ -3,7 +3,7 @@ import { ProductStyle } from "../styles/ProductNameStyle";
 
 export class ProductName extends Component {
   render() {
-    const { modal, pdp, cart } = this.props;
+    const { modal, pdp, cart, product } = this.props;
     return (
       <ProductStyle>
         <p
@@ -17,7 +17,7 @@ export class ProductName extends Component {
               : ""
           }`}
         >
-          <strong>Apollo</strong> <br /> Running Short
+          <strong>{product.name}</strong>
         </p>
       </ProductStyle>
     );

@@ -29,10 +29,15 @@ export const PDPstyle = styled.section`
     cursor: pointer;
     width: 5rem;
     height: 5rem;
+    object-fit: contain;
   }
   & .product-image {
     margin-right: 6.25rem;
     cursor: pointer;
+    width: 38.125rem;
+    height: 31.9375rem;
+  }
+  & .product-image img {
     width: 38.125rem;
     height: 31.9375rem;
     object-fit: contain;

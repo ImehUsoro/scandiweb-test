@@ -11,16 +11,19 @@ export class Clothes extends Component {
       <>
         {clothes?.products.map((product) => (
           <ProductCardStyle key={product.id}>
-            <img className="icon" src={cart} alt="" />
-            <Link to={`/product/${product.name}`}>
-              <div className="product-image">
-                <img src={product.gallery[0]} alt={product.name} />
-              </div>
-            </Link>
-            <StyledLink to={`/product/${product.name}`}>
-              <p className="product-name">{product.name}</p>
-              <p>$50.00</p>
-            </StyledLink>
+            <div className={!product.inStock ? "no-stock" : ""}>
+              <img className="icon" src={cart} alt="" />
+              {!product.inStock && <p className="out-of-stock">OUT OF STOCK</p>}
+              <StyledLink to={`/product/${product.id}`}>
+                <div className="product-image">
+                  <img src={product.gallery[0]} alt={product.name} />
+                </div>
+              </StyledLink>
+              <StyledLink to={`/product/${product.id}`}>
+                <p className="product-name">{product.name}</p>
+                <p>$50.00</p>
+              </StyledLink>
+            </div>
           </ProductCardStyle>
         ))}
       </>
