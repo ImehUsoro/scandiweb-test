@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ProductCardStyle, StyledLink } from "../styles/ProductCardStyles";
 import cart from "../images/icon.svg";
+import { useRecoilValue } from "recoil";
+import { currencyState } from "../atoms/currencyAtom";
 
+function withCurrency(Component) {
+  return (props) => (
+    <Component {...props} currency={useRecoilValue(currencyState)} />
+  );
+}
 export class Clothes extends Component {
   render() {
     const { clothes } = this.props;
@@ -21,7 +28,16 @@ export class Clothes extends Component {
               </StyledLink>
               <StyledLink to={`/product/${product.id}`}>
                 <p className="product-name">{product.name}</p>
-                <p>$50.00</p>
+                {product.prices
+                  .filter(
+                    (item) => item.currency.symbol === this.props.currency
+                  )
+                  .map((value) => (
+                    <p key={value.amount}>
+                      {this.props.currency}
+                      {value.amount}
+                    </p>
+                  ))}
               </StyledLink>
             </div>
           </ProductCardStyle>
@@ -31,4 +47,4 @@ export class Clothes extends Component {
   }
 }
 
-export default Clothes;
+export default withCurrency(Clothes);

@@ -22,7 +22,7 @@ export const ProductCardStyle = styled.div`
   }
   & .no-stock {
     opacity: 0.5;
-    pointer-events: none;
+    /* pointer-events: none; */
   }
   & .icon {
     position: absolute;

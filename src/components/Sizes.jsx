@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import Products from "../pages/Products";
 import { SizesStyles } from "../styles/SizesStyle";
 
 export class Sizes extends Component {
   render() {
-    const { modal, cart, pdp } = this.props;
+    const { modal, cart, pdp, product } = this.props;
+
     return (
       <SizesStyles>
         <div
@@ -19,8 +21,16 @@ export class Sizes extends Component {
         >
           <p className={`${modal ? "modal-title" : "title"}`}>Sizes:</p>
           <div className={`${modal ? "modal-sizes" : "sizes"}`}>
-            <span>XS</span>
-            <span>S</span>
+            {product?.attributes
+              ?.filter(
+                (attribute) =>
+                  attribute.name === "Size" || attribute.name === "Capacity"
+              )
+              .map((size) =>
+                size.items.map((values) => (
+                  <span key={values.value}>{values.value}</span>
+                ))
+              )}
           </div>
         </div>
       </SizesStyles>

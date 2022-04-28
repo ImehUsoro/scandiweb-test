@@ -17,7 +17,7 @@ export class ProductName extends Component {
               : ""
           }`}
         >
-          <strong>{product.name}</strong>
+          <strong>{product?.name}</strong>
         </p>
       </ProductStyle>
     );

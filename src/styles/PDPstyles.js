@@ -19,6 +19,10 @@ export const PDPstyle = styled.section`
   button:hover {
     background-color: #52b36c;
   }
+  button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+  }
   & .product-display {
     display: flex;
     flex-direction: column;

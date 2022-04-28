@@ -21,6 +21,7 @@ export const ALL_PRODUCTS = gql`
         brand
         gallery
         inStock
+        description
         attributes {
           type
           name

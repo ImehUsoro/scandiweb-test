@@ -47,18 +47,25 @@ export class PDP extends Component {
               </div>
               {/* Third */}
               <div className="product-info">
+                {/* Product Name */}
                 <ProductName pdp product={product} />
-                <Sizes pdp product={product} />
-                <Color pdp product={product} />
+                {/* Product Size */}
+                {product.attributes.length > 0 && (
+                  <Sizes pdp product={product} />
+                )}
+                {/* Product Color */}
+                {product.attributes.filter(
+                  (attribute) => attribute.name === "Color"
+                ).length > 0 && <Color pdp product={product} />}
+                {/* Product Product Price */}
                 <ProductPrice pdp product={product} />
                 <Link to={"/cart"}>
-                  <button>ADD TO CART</button>
+                  <button disabled={!product.inStock}>ADD TO CART</button>
                 </Link>
-                <p className="description">
-                  Fine stunning women's cocktail dress and party dresses. Stand
-                  out in lace and metallic cocktail and party dresses from all
-                  your favorite brands
-                </p>
+                <p
+                  className="description"
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                ></p>
               </div>
             </PDPstyle>
           ))}
