@@ -38,7 +38,6 @@ export const HeaderStyle = styled.header`
   }
   & .checkout {
     display: flex;
-    align-items: flex-start;
     gap: 1.375rem;
   }
   & .checkout button {

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { HeaderStyle } from "../styles/HeaderStyles";
-import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import CartModalWrapper from "../wrappers/CartModalWrapper";
 import logo from "../images/VSF.svg";
 import cart from "../images/cart.svg";
+import dropDown from "../images/downward.svg";
+import dropUp from "../images/upward.svg";
 import { StyledLink } from "../styles/ProductCardStyles";
 
 export class Header extends Component {
@@ -66,8 +67,14 @@ export class Header extends Component {
               setCurrencyDropDown(!currencyDropDown);
             }}
           >
-            <span>{currency}</span>
-            {currencyDropDown ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+            <div>
+              <span>{currency}</span>
+              {currencyDropDown ? (
+                <img src={dropUp} alt="drop up" />
+              ) : (
+                <img src={dropDown} alt="drop down" />
+              )}
+            </div>
             {currencyDropDown && (
               <div className="currency">
                 <p
