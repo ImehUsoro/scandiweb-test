@@ -6,11 +6,10 @@ import { ModalStyle } from "../styles/ModalStyle";
 import { allProductsState } from "../atoms/productsAtom";
 import { ALL_PRODUCTS } from "../components/GraphQL/Queries";
 import { useQuery } from "@apollo/client";
+import { categoryState } from "../atoms/categoryAtom";
 
 const PDPWrapper = () => {
   const cartDropDown = useRecoilValue(cartDropDownState);
-  // const allProducts = useRecoilValue(allProductsState);
-  const [allProducts, setAllProducts] = useRecoilState(allProductsState);
   const { error, loading, data } = useQuery(ALL_PRODUCTS);
 
   // console.log(data.categories[0]);

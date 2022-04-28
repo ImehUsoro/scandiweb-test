@@ -14,12 +14,10 @@ export class PDP extends Component {
     super(props);
     this.state = { id: 0 };
   }
+
   render() {
     const { id } = this.props.params;
     const { all, loading } = this.props;
-    // console.log(id);
-    // console.log(all);
-    // console.log(all.filter((product) => product.id === id));
 
     if (loading) {
       return <h1>Loading..</h1>;

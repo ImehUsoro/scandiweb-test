@@ -17,6 +17,7 @@ const HeaderWrapper = () => {
   const category = useRecoilValue(categoryState);
   const { error, loading, data } = useQuery(CATEGORIES);
 
+  console.log(category);
   return (
     <Header
       currency={currency}

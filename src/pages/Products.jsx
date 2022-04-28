@@ -11,6 +11,12 @@ function withParams(Component) {
 }
 
 export class Products extends Component {
+  componentDidMount() {
+    this.props.setCategory(this.props.params.category);
+  }
+  componentDidUpdate() {
+    this.props.setCategory(this.props.params.category);
+  }
   render() {
     const { all, clothes, tech } = this.props;
     let { category } = this.props.params;

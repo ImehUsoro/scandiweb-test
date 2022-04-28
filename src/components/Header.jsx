@@ -39,7 +39,7 @@ export class Header extends Component {
       currencyDropDown,
       setCurrencyDropDown,
     } = this.props;
-    // console.log(category);
+
     return (
       <HeaderStyle>
         {/* Modal */}

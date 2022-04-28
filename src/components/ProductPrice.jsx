@@ -15,7 +15,7 @@ export class ProductPrice extends Component {
       <ProductPriceStyle>
         <div className={`${modal ? "modal-product-price" : "product-price"}`}>
           {pdp && <span className="text">PRICE:</span>}
-          {product.prices
+          {product?.prices
             .filter((item) => item.currency.symbol === this.props.currency)
             .map((value) => (
               <span

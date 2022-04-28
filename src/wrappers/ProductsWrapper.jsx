@@ -16,6 +16,8 @@ import { categoryState } from "../atoms/categoryAtom";
 const ProductsWrapper = () => {
   const { error, loading, data } = useQuery(ALL_PRODUCTS);
   const cartDropDown = useRecoilValue(cartDropDownState);
+  const [category, setCategory] = useRecoilState(categoryState);
+
   // const [currency, setCurrency] = useRecoilState(currencyState);
   // const [allProducts, setAllProducts] = useRecoilState(allProductsState);
   // const [clothesProducts, setClothesProducts] =
@@ -26,6 +28,8 @@ const ProductsWrapper = () => {
   return (
     <ModalStyle primary={cartDropDown ? true : false}>
       <Products
+        category={category}
+        setCategory={setCategory}
         all={data?.categories[0]}
         tech={data?.categories[2]}
         clothes={data?.categories[1]}
