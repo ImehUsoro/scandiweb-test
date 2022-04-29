@@ -33,7 +33,7 @@ export class Clothes extends Component {
                     (item) => item.currency.symbol === this.props.currency
                   )
                   .map((value) => (
-                    <p key={value.amount}>
+                    <p key={value.amount} className="price">
                       {this.props.currency}
                       {value.amount}
                     </p>

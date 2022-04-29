@@ -12,12 +12,12 @@ export class ProductDisplay extends Component {
   onclick(type) {
     this.setState((prevState) => {
       if (
-        type == "add" &&
+        type === "add" &&
         prevState.count > this.props.product.images.length - 2
       ) {
         return null;
       }
-      if (type === "sub" && prevState.count == 0) {
+      if (type === "sub" && prevState.count === 0) {
         return null;
       } else {
         return {
@@ -28,8 +28,7 @@ export class ProductDisplay extends Component {
   }
   render() {
     const { modal, cart, product } = this.props;
-    console.log(product);
-    console.log(this.state.count);
+
     return (
       <ProductDisplayStyle>
         {/* Left */}

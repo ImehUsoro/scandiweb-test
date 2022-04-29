@@ -22,6 +22,8 @@ export class CartModal extends Component {
     }
   }
   render() {
+    const { selectedProducts, setSelectedProducts } = this.props;
+
     return (
       <CartModalStyles>
         <div ref={this.wrapperRef}>
@@ -30,8 +32,9 @@ export class CartModal extends Component {
           </p>
           {/* Cart Item(s) */}
           <div className="cart-item">
-            <CartItemModal />
-            <CartItemModal />
+            {selectedProducts?.map((product) => (
+              <CartItemModal key={product.name} product={product} />
+            ))}
           </div>
           {/* Total */}
           <div className="total">

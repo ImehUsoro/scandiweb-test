@@ -7,6 +7,7 @@ import Sizes from "../components/Sizes";
 import { PDPstyle } from "../styles/PDPstyles";
 import { useRecoilValue } from "recoil";
 import { currencyState } from "../atoms/currencyAtom";
+import AddToCartButton from "../components/AddToCartButton";
 
 function withParams(Component) {
   return (props) => (
@@ -32,25 +33,18 @@ export class PDP extends Component {
     const productDetails = {
       name: product[0].name,
       prices: product[0].prices,
-      color: "",
-      size: "",
+      attributes: product[0].attributes,
       images: product[0].gallery,
       amount: 1,
     };
 
-    // console.log(productDetails);
     this.props.setSelectedProducts((prev) => {
-      // prev.forEach((product) => console.log(product.name));
-      // console.log(prev.filter((product) => prev.name === productDetails.name));
       return [...prev, productDetails];
     });
-    // return productDetails;
   };
   render() {
     const { id } = this.props.params;
     const { all, loading, selectedProducts, setSelectedProducts } = this.props;
-
-    // console.log(selectedProducts);
 
     if (loading) {
       return <h1>Loading..</h1>;
@@ -112,14 +106,20 @@ export class PDP extends Component {
                   selectedProducts={selectedProducts}
                   setSelectedProducts={setSelectedProducts}
                 />
-                <Link to={"/cart"}>
-                  <button
-                    onClick={this.pushToSelected}
-                    disabled={!product.inStock}
-                  >
-                    ADD TO CART
-                  </button>
-                </Link>
+
+                {/* Add to cart */}
+
+                {selectedProducts?.filter((item) => item.name === product.name)
+                  .length > 0 ? (
+                  <AddToCartButton selected />
+                ) : (
+                  <AddToCartButton
+                    product={product}
+                    pushToSelected={this.pushToSelected}
+                    noStock={!product.inStock}
+                  />
+                )}
+                {/* Product Description */}
                 <p
                   className="description"
                   dangerouslySetInnerHTML={{ __html: product.description }}

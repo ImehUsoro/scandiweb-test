@@ -4,14 +4,12 @@ import { ColorStyle } from "../styles/ColorStyles";
 export class Color extends Component {
   constructor(props) {
     super(props);
-    // this.colorRef = React.createRef();
     this.state = { key: 0 };
   }
 
   pushToSelected() {}
   render() {
     const { modal, cart, pdp, product } = this.props;
-    // console.log(this.colorRef.current?.innerText);
 
     return (
       <ColorStyle>

@@ -48,7 +48,7 @@ export const PDPstyle = styled.section`
   }
 
   & .product-info {
-    max-width: 18.75rem;
+    width: 18.75rem;
   }
   & .description {
     font-family: "Roboto", sans-serif;

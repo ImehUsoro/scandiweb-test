@@ -7,8 +7,9 @@ export const CartItemStyle = styled.div`
   padding-top: 1.25rem;
   padding-bottom: 1.875rem;
 
-  & .amount {
-    font-size: 1.5rem;
-    font-weight: 700;
+  & .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;

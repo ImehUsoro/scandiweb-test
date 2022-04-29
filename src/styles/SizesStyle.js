@@ -52,7 +52,7 @@ export const SizesStyles = styled.div`
   }
   & .modal-sizes span {
     font-size: 0.875rem;
-    width: 1.5rem;
+    width: 2.5rem;
     height: 1.5rem;
   }
 `;

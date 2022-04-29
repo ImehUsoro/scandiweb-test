@@ -16,22 +16,20 @@ function withCurrency(Component) {
 export class CartItem extends Component {
   render() {
     const { modal, product } = this.props;
-
     return (
       <CartItemStyle>
         {/* Left */}
-        <div>
+        <div className="product-details">
+          {/* Name */}
           <ProductName cart product={product} />
-          <span className="amount">
-            {this.props.currency}
-            {
-              product.prices.filter(
-                (item) => item.currency.symbol === this.props.currency
-              )[0].amount
-            }
-          </span>
-          <Sizes cart />
-          <Color cart />
+          {/* Price */}
+          <ProductPrice cart product={product} />
+
+          <Sizes cart product={product} />
+          {product.attributes.filter((attribute) => attribute.type === "swatch")
+            .length > 0 ? (
+            <Color cart product={product} />
+          ) : null}
         </div>
         {/* Right */}
         <ProductDisplay cart product={product} />
@@ -41,6 +39,3 @@ export class CartItem extends Component {
 }
 
 export default withCurrency(CartItem);
-// product[0].prices.filter(
-//         (item) => item.currency.symbol === this.props.currency
-//       ),

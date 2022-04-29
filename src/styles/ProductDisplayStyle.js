@@ -5,8 +5,8 @@ export const ProductDisplayStyle = styled.div`
   gap: 0.75rem;
 
   & .main {
-    width: 200px;
-    height: 288px;
+    width: 12.5rem;
+    height: 18rem;
     object-fit: contain;
   }
   & .count-section {
@@ -49,8 +49,8 @@ export const ProductDisplayStyle = styled.div`
   }
 
   & .modal-image {
-    width: 121px;
-    height: 190px;
+    width: 7.5625rem;
+    height: 11.875rem;
     object-fit: contain;
   }
 `;
