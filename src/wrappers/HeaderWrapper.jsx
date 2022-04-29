@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { cartDropDownState } from "../atoms/cartAtom";
+import { cartDropDownState, selectedProductsState } from "../atoms/cartAtom";
 import { currencyDropDownState, currencyState } from "../atoms/currencyAtom";
 import Header from "../components/Header";
 import { useQuery } from "@apollo/client";
@@ -15,14 +15,15 @@ const HeaderWrapper = () => {
   const [cartDropDown, setCartDropDown] = useRecoilState(cartDropDownState);
 
   const category = useRecoilValue(categoryState);
+  const selectedItems = useRecoilValue(selectedProductsState);
   const { error, loading, data } = useQuery(CATEGORIES);
 
-  console.log(category);
   return (
     <Header
       currency={currency}
       category={category}
       setCurrency={setCurrency}
+      selectedItems={selectedItems}
       cartDropDown={cartDropDown}
       setCartDropDown={setCartDropDown}
       currencyDropDown={currencyDropDown}

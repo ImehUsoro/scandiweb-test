@@ -34,6 +34,7 @@ export class Header extends Component {
       currency,
       category,
       setCurrency,
+      selectedItems,
       cartDropDown,
       setCartDropDown,
       currencyDropDown,
@@ -48,7 +49,7 @@ export class Header extends Component {
         <ul>
           {headers?.map((item) => (
             <StyledLink to={`/${item.name}`} key={item.name}>
-              <li className={`${item.name === category ? "active" : ""}`}>
+              <li className={`${item.name === category ? "active" : ""} `}>
                 {item.name}
               </li>
             </StyledLink>
@@ -124,7 +125,11 @@ export class Header extends Component {
             }}
           >
             <img src={cart} alt="cart" />
-            <span className="item-number">{2}</span>
+            {selectedItems.length > 0 ? (
+              <span className="item-number">{selectedItems.length}</span>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </HeaderStyle>

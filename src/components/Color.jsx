@@ -2,11 +2,17 @@ import React, { Component } from "react";
 import { ColorStyle } from "../styles/ColorStyles";
 
 export class Color extends Component {
+  constructor(props) {
+    super(props);
+    // this.colorRef = React.createRef();
+    this.state = { key: 0 };
+  }
+
+  pushToSelected() {}
   render() {
     const { modal, cart, pdp, product } = this.props;
-    // console.log(
-    //   product.attributes.filter((attribute) => attribute.type === "swatch")
-    // );
+    // console.log(this.colorRef.current?.innerText);
+
     return (
       <ColorStyle>
         <div className={`${pdp ? "pdp-container container" : "container"}`}>
@@ -20,6 +26,7 @@ export class Color extends Component {
                   <span
                     style={{ backgroundColor: size.value }}
                     key={size.value}
+                    ref={this.colorRef}
                   ></span>
                 ))
               )}

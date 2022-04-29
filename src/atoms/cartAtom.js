@@ -12,7 +12,7 @@ export const itemsInCartState = atom({
 
 export const selectedProductsState = atom({
   key: "selectedProductsState",
-  default: {},
+  default: [],
 });
 
 export const totalPriceState = atom({

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { ProductCardStyle, StyledLink } from "../styles/ProductCardStyles";
 import cart from "../images/icon.svg";
 import { useRecoilValue } from "recoil";
@@ -14,15 +13,15 @@ function withCurrency(Component) {
 export class AllProducts extends Component {
   render() {
     const { all } = this.props;
-    // console.log(this.props.currency);
-    // const { currency } = this.props.id;
-    // console.log(currency);
+
     return (
       <>
         {all?.products.map((product) => (
           <ProductCardStyle key={product.id}>
             <div className={!product.inStock ? "no-stock" : ""}>
-              <img className="icon" src={cart} alt="" />
+              <StyledLink to={`/product/${product.id}`}>
+                <img className="icon" src={cart} alt="" />
+              </StyledLink>
               {!product.inStock && <p className="out-of-stock">OUT OF STOCK</p>}
               <StyledLink to={`/product/${product.id}`}>
                 <div className="product-image">

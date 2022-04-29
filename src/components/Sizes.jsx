@@ -3,8 +3,16 @@ import Products from "../pages/Products";
 import { SizesStyles } from "../styles/SizesStyle";
 
 export class Sizes extends Component {
+  constructor(props) {
+    super(props);
+    // this.sizeRef = React.createRef();
+    this.state = { key: 0 };
+  }
+  pushToSelected() {}
   render() {
     const { modal, cart, pdp, product } = this.props;
+
+    // console.log(this.sizeRef.current?.innerText);
 
     return (
       <SizesStyles>
@@ -28,7 +36,9 @@ export class Sizes extends Component {
               )
               .map((size) =>
                 size.items.map((values) => (
-                  <span key={values.value}>{values.value}</span>
+                  <span key={values.value} ref={this.sizeRef}>
+                    {values.value}
+                  </span>
                 ))
               )}
           </div>

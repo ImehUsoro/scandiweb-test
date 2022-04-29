@@ -4,6 +4,11 @@ export const ProductDisplayStyle = styled.div`
   display: flex;
   gap: 0.75rem;
 
+  & .main {
+    width: 200px;
+    height: 288px;
+    object-fit: contain;
+  }
   & .count-section {
     display: flex;
     flex-direction: column;
@@ -28,5 +33,24 @@ export const ProductDisplayStyle = styled.div`
   }
   & .count {
     text-align: center;
+  }
+  & .image-section {
+    position: relative;
+  }
+  & .image-toggles {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  & .image-toggles img {
+    cursor: pointer;
+  }
+
+  & .modal-image {
+    width: 121px;
+    height: 190px;
+    object-fit: contain;
   }
 `;

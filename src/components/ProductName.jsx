@@ -2,8 +2,22 @@ import React, { Component } from "react";
 import { ProductStyle } from "../styles/ProductNameStyle";
 
 export class ProductName extends Component {
+  constructor(props) {
+    super(props);
+    this.nameRef = React.createRef();
+  }
+
+  // pushToSelected = () => {
+  //   this.props.setSelectedProducts((prev) => {
+  //     return [...prev, { name: this.props.product?.name }];
+  //   });
+  // };
   render() {
-    const { modal, pdp, cart, product } = this.props;
+    const { modal, pdp, cart, product, selectedProducts } = this.props;
+    // console.log(selectedProducts);
+
+    // console.log(this.nameRef.current?.innerText);
+
     return (
       <ProductStyle>
         <p
@@ -17,7 +31,7 @@ export class ProductName extends Component {
               : ""
           }`}
         >
-          <strong>{product?.name}</strong>
+          <strong ref={this.nameRef}>{product?.name}</strong>
         </p>
       </ProductStyle>
     );
@@ -25,3 +39,5 @@ export class ProductName extends Component {
 }
 
 export default ProductName;
+
+// onClick={this.pushToSelected}

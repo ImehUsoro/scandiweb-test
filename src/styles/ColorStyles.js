@@ -35,6 +35,7 @@ export const ColorStyle = styled.div`
     width: 2rem;
     height: 2rem;
     border: 1px solid transparent;
+    box-shadow: 3px 5px 3px 0 rgb(0 0 0 / 0.1), 0 5px 2px -1px rgb(0 0 0 / 0.1);
   }
   & .modal-colors span {
     width: 1rem;
