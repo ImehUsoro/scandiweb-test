@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { useRecoilState } from "recoil";
-import { selectedProductsState } from "../atoms/cartAtom";
-import Products from "../pages/Products";
 import { SizesStyles } from "../styles/SizesStyle";
 
 export class Sizes extends Component {
@@ -14,6 +11,7 @@ export class Sizes extends Component {
     const { modal, cart, pdp, product, selectedProducts, setSelectedProducts } =
       this.props;
 
+    console.log(selectedProducts);
     return (
       <SizesStyles>
         <div
@@ -39,7 +37,6 @@ export class Sizes extends Component {
                   <span
                     key={values.value}
                     ref={this.sizeRef}
-                    className={this.state.id === i ? "background" : ""}
                     onClick={() => {
                       this.setState({ id: i });
                       setSelectedProducts((prev) =>
@@ -50,6 +47,17 @@ export class Sizes extends Component {
                         )
                       );
                     }}
+                    className={
+                      pdp
+                        ? this.state.id === i
+                          ? "background"
+                          : ""
+                        : selectedProducts.filter(
+                            (prod) => prod.name === product.name
+                          )[0].selectedSize === i
+                        ? "background"
+                        : ""
+                    }
                   >
                     {values.value}
                   </span>

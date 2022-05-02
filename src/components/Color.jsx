@@ -25,7 +25,6 @@ export class Color extends Component {
                   <span
                     style={{ backgroundColor: size.value }}
                     key={size.value}
-                    className={this.state.id === i ? "background" : ""}
                     onClick={() => {
                       this.setState({ id: i });
                       setSelectedProducts((prev) =>
@@ -36,6 +35,17 @@ export class Color extends Component {
                         )
                       );
                     }}
+                    className={
+                      pdp
+                        ? this.state.id === i
+                          ? "background"
+                          : ""
+                        : selectedProducts.filter(
+                            (prod) => prod.name === product.name
+                          )[0].selectedColor === i
+                        ? "background"
+                        : ""
+                    }
                   ></span>
                 ))
               )}
@@ -47,3 +57,12 @@ export class Color extends Component {
 }
 
 export default Color;
+// className={this.state.id === i ? "background" : ""}
+
+// className={
+//               selectedProducts?.filter(
+//                 (prod) => prod.name === product.name
+//               )[0].selectedColor === i
+//                 ? "background"
+//                 : ""
+//             }

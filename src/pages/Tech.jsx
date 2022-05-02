@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { ProductCardStyle, StyledLink } from "../styles/ProductCardStyles";
 import cart from "../images/icon.svg";
 import { useRecoilValue } from "recoil";

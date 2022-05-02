@@ -5,7 +5,6 @@ import { cartDropDownState, selectedProductsState } from "../atoms/cartAtom";
 import { ModalStyle } from "../styles/ModalStyle";
 import { ALL_PRODUCTS } from "../components/GraphQL/Queries";
 import { useQuery } from "@apollo/client";
-import { categoryState } from "../atoms/categoryAtom";
 
 const PDPWrapper = () => {
   const cartDropDown = useRecoilValue(cartDropDownState);

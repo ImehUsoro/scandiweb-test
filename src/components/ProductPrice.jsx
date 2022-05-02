@@ -9,11 +9,6 @@ function withCurrency(Component) {
   );
 }
 export class ProductPrice extends Component {
-  constructor(props) {
-    super(props);
-    this.priceRef = React.createRef();
-  }
-
   render() {
     const { modal, pdp, cart, product, currency, selectedProducts } =
       this.props;
@@ -28,9 +23,8 @@ export class ProductPrice extends Component {
               <span
                 key={value.amount}
                 className={`${modal ? "modal-amount" : "amount"}`}
-                ref={this.priceRef}
               >
-                {this.props.currency}
+                {currency}
                 {pdp
                   ? value.amount
                   : Math.round(

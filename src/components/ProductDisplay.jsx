@@ -28,20 +28,9 @@ export class ProductDisplay extends Component {
   }
 
   render() {
-    const {
-      modal,
-      cart,
-      product,
-      selectedProducts,
-      setSelectedProducts,
-      prices,
-      setTotalPrices,
-    } = this.props;
+    const { modal, cart, product, selectedProducts, setSelectedProducts } =
+      this.props;
 
-    // console.log(prices);
-    // console.log(
-    //   selectedProducts.filter((prod) => prod.name === product.name)[0].prices
-    // );
     return (
       <ProductDisplayStyle>
         {/* Left */}

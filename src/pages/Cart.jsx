@@ -5,8 +5,7 @@ import { CartStyle } from "../styles/CartStyle";
 
 export class Cart extends Component {
   render() {
-    const { selectedProducts, setSelectedProducts, prices, setTotalPrices } =
-      this.props;
+    const { selectedProducts, setSelectedProducts } = this.props;
 
     return (
       <CartStyle>
@@ -19,16 +18,12 @@ export class Cart extends Component {
           <CartItem
             product={product}
             key={id}
-            prices={prices}
-            setTotalPrices={setTotalPrices}
             selectedProducts={selectedProducts}
             setSelectedProducts={setSelectedProducts}
           />
         ))}
         {selectedProducts.length === 0 ? null : (
           <Total
-            prices={prices}
-            setTotalPrices={setTotalPrices}
             selectedProducts={selectedProducts}
             setSelectedProducts={setSelectedProducts}
           />

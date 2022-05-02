@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Color from "../components/Color";
 import ProductName from "../components/ProductName";
 import ProductPrice from "../components/ProductPrice";

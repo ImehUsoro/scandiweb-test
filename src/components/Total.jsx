@@ -35,7 +35,8 @@ export class Total extends Component {
                   accumulator +
                   product.prices.filter(
                     (item) => item.currency.symbol === currency
-                  )[0].amount
+                  )[0].amount *
+                    product.amount
                 );
               }, 0) * 100
             ) / 100}

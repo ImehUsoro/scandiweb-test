@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { useRecoilValue } from "recoil";
-import { selectedProductsState } from "../atoms/cartAtom";
 import { currencyState } from "../atoms/currencyAtom";
 import { CartItemStyle } from "../styles/CartItemStyles";
 import Color from "./Color";
@@ -16,15 +15,9 @@ function withCurrency(Component) {
 }
 export class CartItem extends Component {
   render() {
-    const {
-      modal,
-      product,
-      selectedProducts,
-      setSelectedProducts,
-      prices,
-      setTotalPrices,
-    } = this.props;
-    console.log(prices);
+    const { modal, product, selectedProducts, setSelectedProducts } =
+      this.props;
+
     return (
       <CartItemStyle>
         {/* Left */}
@@ -61,8 +54,6 @@ export class CartItem extends Component {
         <ProductDisplay
           cart
           product={product}
-          prices={prices}
-          setTotalPrices={setTotalPrices}
           selectedProducts={selectedProducts}
           setSelectedProducts={setSelectedProducts}
         />

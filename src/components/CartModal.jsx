@@ -60,14 +60,17 @@ export class CartModal extends Component {
               <p>Total</p>
               <span>
                 {currency}
-                {selectedProducts.reduce((accumulator, product) => {
-                  return (
-                    accumulator +
-                    product.prices.filter(
-                      (item) => item.currency.symbol === currency
-                    )[0].amount
-                  );
-                }, 0)}
+                {Math.round(
+                  selectedProducts.reduce((accumulator, product) => {
+                    return (
+                      accumulator +
+                      product.prices.filter(
+                        (item) => item.currency.symbol === currency
+                      )[0].amount *
+                        product.amount
+                    );
+                  }, 0) * 100
+                ) / 100}
               </span>
             </div>
           )}
