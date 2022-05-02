@@ -4,12 +4,13 @@ import { ColorStyle } from "../styles/ColorStyles";
 export class Color extends Component {
   constructor(props) {
     super(props);
-    this.state = { key: 0 };
+    this.state = { id: "" };
   }
 
   pushToSelected() {}
   render() {
-    const { modal, cart, pdp, product } = this.props;
+    const { modal, cart, pdp, product, selectedProducts, setSelectedProducts } =
+      this.props;
 
     return (
       <ColorStyle>
@@ -20,11 +21,21 @@ export class Color extends Component {
             {product?.attributes
               ?.filter((attribute) => attribute.type === "swatch")
               .map((text) =>
-                text.items.map((size) => (
+                text.items.map((size, i) => (
                   <span
                     style={{ backgroundColor: size.value }}
                     key={size.value}
-                    ref={this.colorRef}
+                    className={this.state.id === i ? "background" : ""}
+                    onClick={() => {
+                      this.setState({ id: i });
+                      setSelectedProducts((prev) =>
+                        prev.map((prod) =>
+                          prod.name === product.name
+                            ? { ...prod, selectedColor: i }
+                            : prod
+                        )
+                      );
+                    }}
                   ></span>
                 ))
               )}

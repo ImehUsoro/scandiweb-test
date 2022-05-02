@@ -1,18 +1,18 @@
 import React, { Component } from "react";
+import { useRecoilState } from "recoil";
+import { selectedProductsState } from "../atoms/cartAtom";
 import Products from "../pages/Products";
 import { SizesStyles } from "../styles/SizesStyle";
 
 export class Sizes extends Component {
   constructor(props) {
     super(props);
-    // this.sizeRef = React.createRef();
-    this.state = { key: 0 };
+    this.state = { id: "" };
   }
-  pushToSelected() {}
-  render() {
-    const { modal, cart, pdp, product } = this.props;
 
-    // console.log(this.sizeRef.current?.innerText);
+  render() {
+    const { modal, cart, pdp, product, selectedProducts, setSelectedProducts } =
+      this.props;
 
     return (
       <SizesStyles>
@@ -35,8 +35,22 @@ export class Sizes extends Component {
                   attribute.name === "Size" || attribute.name === "Capacity"
               )
               .map((size) =>
-                size.items.map((values) => (
-                  <span key={values.value} ref={this.sizeRef}>
+                size.items.map((values, i) => (
+                  <span
+                    key={values.value}
+                    ref={this.sizeRef}
+                    className={this.state.id === i ? "background" : ""}
+                    onClick={() => {
+                      this.setState({ id: i });
+                      setSelectedProducts((prev) =>
+                        prev.map((prod) =>
+                          prod.name === product.name
+                            ? { ...prod, selectedSize: i }
+                            : prod
+                        )
+                      );
+                    }}
+                  >
                     {values.value}
                   </span>
                 ))

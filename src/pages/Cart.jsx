@@ -1,31 +1,41 @@
 import React, { Component } from "react";
-import { useRecoilValue } from "recoil";
-import { selectedProductsState } from "../atoms/cartAtom";
 import CartItem from "../components/CartItem";
 import Total from "../components/Total";
 import { CartStyle } from "../styles/CartStyle";
 
-function withSelectedItems(Component) {
-  return (props) => (
-    <Component {...props} products={useRecoilValue(selectedProductsState)} />
-  );
-}
-
 export class Cart extends Component {
   render() {
-    const { products } = this.props;
-    // console.log(products);
+    const { selectedProducts, setSelectedProducts, prices, setTotalPrices } =
+      this.props;
+
     return (
       <CartStyle>
         <p className="heading">Cart</p>
         {/* Cart Items */}
-        {products?.map((product, id) => (
-          <CartItem product={product} key={id} />
+        {selectedProducts.length === 0 ? (
+          <h2>There're no items in your cart</h2>
+        ) : null}
+        {selectedProducts?.map((product, id) => (
+          <CartItem
+            product={product}
+            key={id}
+            prices={prices}
+            setTotalPrices={setTotalPrices}
+            selectedProducts={selectedProducts}
+            setSelectedProducts={setSelectedProducts}
+          />
         ))}
-        <Total />
+        {selectedProducts.length === 0 ? null : (
+          <Total
+            prices={prices}
+            setTotalPrices={setTotalPrices}
+            selectedProducts={selectedProducts}
+            setSelectedProducts={setSelectedProducts}
+          />
+        )}
       </CartStyle>
     );
   }
 }
 
-export default withSelectedItems(Cart);
+export default Cart;

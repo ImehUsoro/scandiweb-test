@@ -13,6 +13,7 @@ export const ProductDisplayStyle = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    user-select: none;
   }
   & .btn {
     border: 1px solid black;

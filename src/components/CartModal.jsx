@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { CartModalStyles } from "../styles/CartModalStyles";
 import { StyledLink } from "../styles/ProductCardStyles";
 import CartItemModal from "./CartItemModal";
+import { useRecoilValue } from "recoil";
+import { currencyState } from "../atoms/currencyAtom";
 
+function withCurrency(Component) {
+  return (props) => (
+    <Component {...props} currency={useRecoilValue(currencyState)} />
+  );
+}
 export class CartModal extends Component {
   constructor(props) {
     super(props);
@@ -22,25 +29,49 @@ export class CartModal extends Component {
     }
   }
   render() {
-    const { selectedProducts, setSelectedProducts } = this.props;
+    const { currency, selectedProducts, setSelectedProducts } = this.props;
 
     return (
       <CartModalStyles>
         <div ref={this.wrapperRef}>
           <p className="heading">
-            <span>My Bag, </span>2 items
+            <span>My Bag, </span>
+            {selectedProducts.length > 0 && selectedProducts.length}
+            {selectedProducts.length === 0
+              ? "no items"
+              : selectedProducts.length > 1
+              ? " items"
+              : " item"}
           </p>
           {/* Cart Item(s) */}
           <div className="cart-item">
             {selectedProducts?.map((product) => (
-              <CartItemModal key={product.name} product={product} />
+              <CartItemModal
+                key={product.name}
+                product={product}
+                selectedProducts={selectedProducts}
+                setSelectedProducts={setSelectedProducts}
+              />
             ))}
           </div>
           {/* Total */}
-          <div className="total">
-            <p>Total</p>
-            <span>$100.00</span>
-          </div>
+          {selectedProducts.length > 0 && (
+            <div className="total">
+              <p>Total</p>
+              <span>
+                {currency}
+                {selectedProducts.reduce((accumulator, product) => {
+                  return (
+                    accumulator +
+                    product.prices.filter(
+                      (item) => item.currency.symbol === currency
+                    )[0].amount
+                  );
+                }, 0)}
+              </span>
+            </div>
+          )}
+
           {/* Bottom */}
           <div
             className="actions"
@@ -51,15 +82,18 @@ export class CartModal extends Component {
             <StyledLink className="view-bag" to={"/cart"}>
               <p>View Bag</p>
             </StyledLink>
-            <div
-              className="checkout"
-              onClick={() => {
-                alert("Your Item has been shipped");
-                this.props.setCartDropDown(false);
-              }}
-            >
-              <p>Check out</p>
-            </div>
+            {selectedProducts.length > 0 && (
+              <div
+                className="checkout"
+                onClick={() => {
+                  setSelectedProducts([]);
+                  alert("Your Item has been shipped");
+                  this.props.setCartDropDown(false);
+                }}
+              >
+                <p>Check out</p>
+              </div>
+            )}
           </div>
         </div>
       </CartModalStyles>
@@ -67,4 +101,4 @@ export class CartModal extends Component {
   }
 }
 
-export default CartModal;
+export default withCurrency(CartModal);

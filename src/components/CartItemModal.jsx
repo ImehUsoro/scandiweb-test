@@ -8,23 +8,43 @@ import Sizes from "./Sizes";
 
 export class CartItemModal extends Component {
   render() {
-    const { product } = this.props;
+    const { product, selectedProducts, setSelectedProducts } = this.props;
     return (
       <CartItemModalStyles>
         <div className="product-details">
           <ProductName modal product={product} />
-          <ProductPrice modal product={product} />
+          <ProductPrice
+            modal
+            product={product}
+            selectedProducts={selectedProducts}
+            setSelectedProducts={setSelectedProducts}
+          />
           {product.attributes.length > 0 ? (
-            <Sizes modal product={product} />
+            <Sizes
+              modal
+              product={product}
+              selectedProducts={selectedProducts}
+              setSelectedProducts={setSelectedProducts}
+            />
           ) : null}
 
           {product.attributes.filter((attribute) => attribute.type === "swatch")
             .length > 0 ? (
-            <Color modal product={product} />
+            <Color
+              modal
+              product={product}
+              selectedProducts={selectedProducts}
+              setSelectedProducts={setSelectedProducts}
+            />
           ) : null}
         </div>
         {/* Right */}
-        <ProductDisplay modal product={product} />
+        <ProductDisplay
+          modal
+          product={product}
+          selectedProducts={selectedProducts}
+          setSelectedProducts={setSelectedProducts}
+        />
       </CartItemModalStyles>
     );
   }

@@ -15,15 +15,15 @@ export class ProductPrice extends Component {
   }
 
   render() {
-    const { modal, pdp, cart, product } = this.props;
-    // console.log(this.priceRef.current?.innerText);
+    const { modal, pdp, cart, product, currency, selectedProducts } =
+      this.props;
 
     return (
       <ProductPriceStyle>
         <div className={`${modal ? "modal-product-price" : "product-price"}`}>
           {pdp && <span className="text">PRICE:</span>}
           {product?.prices
-            ?.filter((item) => item.currency.symbol === this.props.currency)
+            ?.filter((item) => item.currency.symbol === currency)
             .map((value) => (
               <span
                 key={value.amount}
@@ -31,7 +31,15 @@ export class ProductPrice extends Component {
                 ref={this.priceRef}
               >
                 {this.props.currency}
-                {value.amount}
+                {pdp
+                  ? value.amount
+                  : Math.round(
+                      value.amount *
+                        selectedProducts?.filter(
+                          (prod) => prod.name === product.name
+                        )[0].amount *
+                        100
+                    ) / 100}
               </span>
             ))}
         </div>

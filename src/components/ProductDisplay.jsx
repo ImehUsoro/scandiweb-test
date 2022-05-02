@@ -6,10 +6,10 @@ import right from "../images/toggle-right.svg";
 export class ProductDisplay extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = { count: 0, amount: 1 };
   }
 
-  onclick(type) {
+  imageToggle(type) {
     this.setState((prevState) => {
       if (
         type === "add" &&
@@ -26,18 +26,59 @@ export class ProductDisplay extends Component {
       }
     });
   }
-  render() {
-    const { modal, cart, product } = this.props;
 
+  render() {
+    const {
+      modal,
+      cart,
+      product,
+      selectedProducts,
+      setSelectedProducts,
+      prices,
+      setTotalPrices,
+    } = this.props;
+
+    // console.log(prices);
+    // console.log(
+    //   selectedProducts.filter((prod) => prod.name === product.name)[0].prices
+    // );
     return (
       <ProductDisplayStyle>
         {/* Left */}
         <div className="count-section">
-          <span className={`${modal ? "modal-action btn" : "action btn"}`}>
+          <span
+            className={`${modal ? "modal-action btn" : "action btn"}`}
+            onClick={() => {
+              setSelectedProducts((prev) =>
+                prev.map((item) =>
+                  item.name === product.name
+                    ? { ...item, amount: product.amount + 1 }
+                    : item
+                )
+              );
+            }}
+          >
             +
           </span>
-          <span className="count">{product?.amount}</span>
-          <span className={`${modal ? "modal-action btn" : "action btn"}`}>
+          <span className="count">{product.amount}</span>
+          <span
+            className={`${modal ? "modal-action btn" : "action btn"}`}
+            onClick={() => {
+              setSelectedProducts((prev) =>
+                prev.map((item) =>
+                  item.name === product.name
+                    ? {
+                        ...item,
+                        amount:
+                          product.amount === 1
+                            ? product.amount
+                            : product.amount - 1,
+                      }
+                    : item
+                )
+              );
+            }}
+          >
             -
           </span>
         </div>
@@ -55,12 +96,12 @@ export class ProductDisplay extends Component {
               <img
                 src={left}
                 alt="left toggle"
-                onClick={this.onclick.bind(this, "sub")}
+                onClick={this.imageToggle.bind(this, "sub")}
               />
               <img
                 src={right}
                 alt="right toggle"
-                onClick={this.onclick.bind(this, "add")}
+                onClick={this.imageToggle.bind(this, "add")}
               />
             </div>
           )}

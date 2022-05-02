@@ -55,4 +55,9 @@ export const SizesStyles = styled.div`
     width: 2.5rem;
     height: 1.5rem;
   }
+
+  & .background {
+    background-color: #1d1f22;
+    color: #ffffff;
+  }
 `;

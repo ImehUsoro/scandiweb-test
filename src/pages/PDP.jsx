@@ -36,6 +36,9 @@ export class PDP extends Component {
       attributes: product[0].attributes,
       images: product[0].gallery,
       amount: 1,
+      selectedSize: "",
+      selectedColor: "",
+      total: 0,
     };
 
     this.props.setSelectedProducts((prev) => {

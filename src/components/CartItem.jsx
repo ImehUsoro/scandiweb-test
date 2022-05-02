@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { useRecoilValue } from "recoil";
+import { selectedProductsState } from "../atoms/cartAtom";
 import { currencyState } from "../atoms/currencyAtom";
 import { CartItemStyle } from "../styles/CartItemStyles";
 import Color from "./Color";
@@ -15,24 +16,56 @@ function withCurrency(Component) {
 }
 export class CartItem extends Component {
   render() {
-    const { modal, product } = this.props;
+    const {
+      modal,
+      product,
+      selectedProducts,
+      setSelectedProducts,
+      prices,
+      setTotalPrices,
+    } = this.props;
+    console.log(prices);
     return (
       <CartItemStyle>
         {/* Left */}
+
         <div className="product-details">
           {/* Name */}
           <ProductName cart product={product} />
           {/* Price */}
-          <ProductPrice cart product={product} />
-
-          <Sizes cart product={product} />
+          <ProductPrice
+            cart
+            product={product}
+            selectedProducts={selectedProducts}
+            setSelectedProducts={setSelectedProducts}
+          />
+          {/* Sizes */}
+          <Sizes
+            cart
+            product={product}
+            selectedProducts={selectedProducts}
+            setSelectedProducts={setSelectedProducts}
+          />
+          {/* Colors */}
           {product.attributes.filter((attribute) => attribute.type === "swatch")
             .length > 0 ? (
-            <Color cart product={product} />
+            <Color
+              cart
+              product={product}
+              selectedProducts={selectedProducts}
+              setSelectedProducts={setSelectedProducts}
+            />
           ) : null}
         </div>
         {/* Right */}
-        <ProductDisplay cart product={product} />
+        <ProductDisplay
+          cart
+          product={product}
+          prices={prices}
+          setTotalPrices={setTotalPrices}
+          selectedProducts={selectedProducts}
+          setSelectedProducts={setSelectedProducts}
+        />
       </CartItemStyle>
     );
   }

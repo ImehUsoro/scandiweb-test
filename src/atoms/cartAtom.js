@@ -17,5 +17,5 @@ export const selectedProductsState = atom({
 
 export const totalPriceState = atom({
   key: "totalPriceState",
-  default: "",
+  default: [],
 });

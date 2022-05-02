@@ -19,7 +19,9 @@ export class Clothes extends Component {
         {clothes?.products.map((product) => (
           <ProductCardStyle key={product.id}>
             <div className={!product.inStock ? "no-stock" : ""}>
-              <img className="icon" src={cart} alt="" />
+              <StyledLink to={`/product/${product.id}`}>
+                <img className="icon" src={cart} alt="" />
+              </StyledLink>
               {!product.inStock && <p className="out-of-stock">OUT OF STOCK</p>}
               <StyledLink to={`/product/${product.id}`}>
                 <div className="product-image">
