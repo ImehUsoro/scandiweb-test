@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import App from "../App";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 
 import { cartDropDownState } from "../atoms/cartAtom";
 import { AppWrapperStyle } from "../styles/AppWrapperStyle";

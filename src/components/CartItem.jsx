@@ -15,8 +15,7 @@ function withCurrency(Component) {
 }
 export class CartItem extends Component {
   render() {
-    const { modal, product, selectedProducts, setSelectedProducts } =
-      this.props;
+    const { product, selectedProducts, setSelectedProducts } = this.props;
 
     return (
       <CartItemStyle>

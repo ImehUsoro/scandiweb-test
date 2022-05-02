@@ -3,7 +3,7 @@ import { ProductStyle } from "../styles/ProductNameStyle";
 
 export class ProductName extends Component {
   render() {
-    const { modal, pdp, cart, product, selectedProducts } = this.props;
+    const { modal, pdp, cart, product } = this.props;
 
     return (
       <ProductStyle>

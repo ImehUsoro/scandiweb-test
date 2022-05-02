@@ -9,7 +9,7 @@ export class Color extends Component {
 
   pushToSelected() {}
   render() {
-    const { modal, cart, pdp, product, selectedProducts, setSelectedProducts } =
+    const { modal, pdp, product, selectedProducts, setSelectedProducts } =
       this.props;
 
     return (

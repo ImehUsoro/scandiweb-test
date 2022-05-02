@@ -28,8 +28,7 @@ export class ProductDisplay extends Component {
   }
 
   render() {
-    const { modal, cart, product, selectedProducts, setSelectedProducts } =
-      this.props;
+    const { modal, cart, product, setSelectedProducts } = this.props;
 
     return (
       <ProductDisplayStyle>

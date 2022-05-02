@@ -11,7 +11,6 @@ export class Sizes extends Component {
     const { modal, cart, pdp, product, selectedProducts, setSelectedProducts } =
       this.props;
 
-    console.log(selectedProducts);
     return (
       <SizesStyles>
         <div

@@ -47,9 +47,9 @@ export class Header extends Component {
         {cartDropDown && <CartModalWrapper />}
         {/* first */}
         <ul>
-          {headers?.map((item) => (
+          {headers?.map((item, i) => (
             <StyledLink to={`/${item.name}`} key={item.name}>
-              <li className={`${item.name === category ? "active" : ""} `}>
+              <li className={item.name === category ? "active" : ""}>
                 {item.name}
               </li>
             </StyledLink>

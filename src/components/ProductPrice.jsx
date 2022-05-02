@@ -10,8 +10,7 @@ function withCurrency(Component) {
 }
 export class ProductPrice extends Component {
   render() {
-    const { modal, pdp, cart, product, currency, selectedProducts } =
-      this.props;
+    const { modal, pdp, product, currency, selectedProducts } = this.props;
 
     return (
       <ProductPriceStyle>

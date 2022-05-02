@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { currencyDropDownState, currencyState } from "../atoms/currencyAtom";
+import { currencyState } from "../atoms/currencyAtom";
 import { cartDropDownState } from "../atoms/cartAtom";
 import { ModalStyle } from "../styles/ModalStyle";
 import { useQuery } from "@apollo/client";
