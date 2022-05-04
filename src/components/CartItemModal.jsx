@@ -9,7 +9,7 @@ import Sizes from "./Sizes";
 export class CartItemModal extends Component {
   render() {
     const { product, selectedProducts, setSelectedProducts } = this.props;
-    console.log(product);
+
     return (
       <CartItemModalStyles>
         <div className="product-details">
