@@ -28,9 +28,9 @@ export class ProductPrice extends Component {
                   ? value.amount
                   : Math.round(
                       value.amount *
-                        selectedProducts?.filter(
+                        selectedProducts?.find(
                           (prod) => prod.name === product.name
-                        )[0].amount *
+                        ).amount *
                         100
                     ) / 100}
               </span>

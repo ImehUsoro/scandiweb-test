@@ -33,9 +33,9 @@ export class Total extends Component {
               selectedProducts.reduce((accumulator, product) => {
                 return (
                   accumulator +
-                  product.prices.filter(
+                  product.prices.find(
                     (item) => item.currency.symbol === currency
-                  )[0].amount *
+                  ).amount *
                     product.amount
                 );
               }, 0) * 100

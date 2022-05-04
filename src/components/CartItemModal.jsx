@@ -9,6 +9,7 @@ import Sizes from "./Sizes";
 export class CartItemModal extends Component {
   render() {
     const { product, selectedProducts, setSelectedProducts } = this.props;
+    console.log(product);
     return (
       <CartItemModalStyles>
         <div className="product-details">
@@ -19,24 +20,27 @@ export class CartItemModal extends Component {
             selectedProducts={selectedProducts}
             setSelectedProducts={setSelectedProducts}
           />
-          {product.attributes.length > 0 ? (
+          {product.attributes.find(
+            (attribute) => attribute.type === "Size" || "Capacity"
+          ) && (
             <Sizes
               modal
               product={product}
               selectedProducts={selectedProducts}
               setSelectedProducts={setSelectedProducts}
             />
-          ) : null}
+          )}
 
-          {product.attributes.filter((attribute) => attribute.type === "swatch")
-            .length > 0 ? (
+          {product.attributes.find(
+            (attribute) => attribute.type === "swatch"
+          ) && (
             <Color
               modal
               product={product}
               selectedProducts={selectedProducts}
               setSelectedProducts={setSelectedProducts}
             />
-          ) : null}
+          )}
         </div>
         {/* Right */}
         <ProductDisplay

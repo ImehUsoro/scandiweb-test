@@ -51,9 +51,9 @@ export class Sizes extends Component {
                         ? this.state.id === i
                           ? "background"
                           : ""
-                        : selectedProducts.filter(
+                        : selectedProducts.find(
                             (prod) => prod.name === product.name
-                          )[0].selectedSize === i
+                          ).selectedSize === i
                         ? "background"
                         : ""
                     }

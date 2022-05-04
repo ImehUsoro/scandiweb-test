@@ -40,9 +40,9 @@ export class Color extends Component {
                         ? this.state.id === i
                           ? "background"
                           : ""
-                        : selectedProducts.filter(
+                        : selectedProducts.find(
                             (prod) => prod.name === product.name
-                          )[0].selectedColor === i
+                          ).selectedColor === i
                         ? "background"
                         : ""
                     }
@@ -57,12 +57,3 @@ export class Color extends Component {
 }
 
 export default Color;
-// className={this.state.id === i ? "background" : ""}
-
-// className={
-//               selectedProducts?.filter(
-//                 (prod) => prod.name === product.name
-//               )[0].selectedColor === i
-//                 ? "background"
-//                 : ""
-//             }

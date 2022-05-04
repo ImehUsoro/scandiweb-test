@@ -39,15 +39,16 @@ export class CartItem extends Component {
             setSelectedProducts={setSelectedProducts}
           />
           {/* Colors */}
-          {product.attributes.filter((attribute) => attribute.type === "swatch")
-            .length > 0 ? (
+          {product.attributes.find(
+            (attribute) => attribute.type === "swatch"
+          ) && (
             <Color
               cart
               product={product}
               selectedProducts={selectedProducts}
               setSelectedProducts={setSelectedProducts}
             />
-          ) : null}
+          )}
         </div>
         {/* Right */}
         <ProductDisplay

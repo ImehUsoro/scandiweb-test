@@ -25,20 +25,22 @@ export class PDP extends Component {
   }
 
   // Function that creates an object for the selected item
+
+  // Finds the item
   pushToSelected = () => {
-    const product = this.props.all?.filter(
+    const product = this.props.all?.find(
       (item) => item.id === this.props.params.id
     );
 
+    // Creates an object from found item
     const productDetails = {
-      name: product[0].name,
-      prices: product[0].prices,
-      attributes: product[0].attributes,
-      images: product[0].gallery,
+      name: product.name,
+      prices: product.prices,
+      attributes: product.attributes,
+      images: product.gallery,
       amount: 1,
       selectedSize: "",
       selectedColor: "",
-      total: 0,
     };
 
     this.props.setSelectedProducts((prev) => {
@@ -92,9 +94,9 @@ export class PDP extends Component {
                   />
                 )}
                 {/* Product Color */}
-                {product.attributes.filter(
+                {product.attributes.find(
                   (attribute) => attribute.name === "Color"
-                ).length > 0 && (
+                ) && (
                   <Color
                     pdp
                     product={product}
@@ -112,8 +114,9 @@ export class PDP extends Component {
 
                 {/* Add to cart */}
 
-                {selectedProducts?.filter((item) => item.name === product.name)
-                  .length > 0 ? (
+                {selectedProducts?.find(
+                  (item) => item.name === product.name
+                ) ? (
                   <AddToCartButton selected />
                 ) : (
                   <AddToCartButton

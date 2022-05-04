@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ProductStyle = styled.div`
+  max-width: 12rem;
   & .product-name-bold {
     font-size: 1.875rem;
     line-height: 2.5rem;
@@ -17,6 +18,7 @@ export const ProductStyle = styled.div`
     font-size: 0.875rem;
     line-height: 1.6rem;
     margin-bottom: 0.5rem;
+    max-width: 5.5rem;
   }
   & .modal-product-name strong {
     font-weight: 400;
