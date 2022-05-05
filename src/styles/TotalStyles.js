@@ -10,6 +10,7 @@ export const TotalStyle = styled.div`
     color: white;
     background-color: #5ece7b;
     padding: 0.8125rem 7.21875rem;
+    cursor: pointer;
   }
   button:hover {
     background-color: #52b36c;
