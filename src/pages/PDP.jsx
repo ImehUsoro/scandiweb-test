@@ -8,6 +8,7 @@ import { PDPstyle } from "../styles/PDPstyles";
 import { useRecoilValue } from "recoil";
 import { currencyState } from "../atoms/currencyAtom";
 import AddToCartButton from "../components/AddToCartButton";
+import { Interweave } from "interweave";
 
 function withParams(Component) {
   return (props) => (
@@ -24,32 +25,23 @@ export class PDP extends Component {
     this.state = { id: 0 };
   }
 
-  // Function that creates an object for the selected item
-
-  // Finds the item
+  // Finds that adds items to selected items
   pushToSelected = () => {
-    const product = this.props.all?.find(
-      (item) => item.id === this.props.params.id
-    );
-
-    // Creates an object from found item
-    const productDetails = {
-      name: product.name,
-      prices: product.prices,
-      attributes: product.attributes,
-      images: product.gallery,
-      amount: 1,
-      selectedSize: "",
-      selectedColor: "",
-    };
-
     this.props.setSelectedProducts((prev) => {
-      return [...prev, productDetails];
+      return [...prev, this.props.currentProduct];
     });
   };
+
   render() {
     const { id } = this.props.params;
-    const { all, loading, selectedProducts, setSelectedProducts } = this.props;
+    const {
+      all,
+      loading,
+      selectedProducts,
+      setSelectedProducts,
+      currentProduct,
+      setCurrentProduct,
+    } = this.props;
 
     if (loading) {
       return <h1>Loading..</h1>;
@@ -89,6 +81,8 @@ export class PDP extends Component {
                   <Sizes
                     pdp
                     product={product}
+                    currentProduct={currentProduct}
+                    setCurrentProduct={setCurrentProduct}
                     selectedProducts={selectedProducts}
                     setSelectedProducts={setSelectedProducts}
                   />
@@ -100,6 +94,7 @@ export class PDP extends Component {
                   <Color
                     pdp
                     product={product}
+                    setCurrentProduct={setCurrentProduct}
                     selectedProducts={selectedProducts}
                     setSelectedProducts={setSelectedProducts}
                   />
@@ -114,22 +109,16 @@ export class PDP extends Component {
 
                 {/* Add to cart */}
 
-                {selectedProducts?.find(
-                  (item) => item.name === product.name
-                ) ? (
-                  <AddToCartButton selected />
-                ) : (
-                  <AddToCartButton
-                    product={product}
-                    pushToSelected={this.pushToSelected}
-                    noStock={!product.inStock}
-                  />
-                )}
+                <AddToCartButton
+                  product={product}
+                  pushToSelected={this.pushToSelected}
+                  noStock={!product.inStock}
+                />
                 {/* Product Description */}
-                <p
+                <Interweave
                   className="description"
-                  dangerouslySetInnerHTML={{ __html: product.description }}
-                ></p>
+                  content={product.description}
+                ></Interweave>
               </div>
             </PDPstyle>
           ))}
@@ -139,3 +128,26 @@ export class PDP extends Component {
 }
 
 export default withParams(PDP);
+
+//  componentDidMount = () => {
+//    if (this.props.loading) {
+//    } else {
+//      const product = this.props.all?.find(
+//        (item) => item.id === this.props.params.id
+//      );
+
+//      // Creates an object from found item
+//      const productDetails = {
+//        name: product?.name,
+//        brand: product?.brand,
+//        prices: product?.prices,
+//        attributes: product?.attributes,
+//        images: product?.gallery,
+//        amount: 1,
+//        selectedSize: 0,
+//        selectedColor: 0,
+//      };
+
+//      this.props.setCurrentProduct(productDetails);
+//    }
+//  };

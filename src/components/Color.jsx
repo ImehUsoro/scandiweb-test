@@ -4,13 +4,19 @@ import { ColorStyle } from "../styles/ColorStyles";
 export class Color extends Component {
   constructor(props) {
     super(props);
-    this.state = { id: "" };
+    this.state = { id: 0 };
   }
 
   pushToSelected() {}
   render() {
-    const { modal, pdp, product, selectedProducts, setSelectedProducts } =
-      this.props;
+    const {
+      modal,
+      pdp,
+      product,
+      selectedProducts,
+      setSelectedProducts,
+      setCurrentProduct,
+    } = this.props;
 
     return (
       <ColorStyle>
@@ -27,13 +33,10 @@ export class Color extends Component {
                     key={size.value}
                     onClick={() => {
                       this.setState({ id: i });
-                      setSelectedProducts((prev) =>
-                        prev.map((prod) =>
-                          prod.name === product.name
-                            ? { ...prod, selectedColor: i }
-                            : prod
-                        )
-                      );
+                      setCurrentProduct((prev) => ({
+                        ...prev,
+                        selectedColor: i,
+                      }));
                     }}
                     className={
                       pdp
@@ -41,7 +44,8 @@ export class Color extends Component {
                           ? "background"
                           : ""
                         : selectedProducts.find(
-                            (prod) => prod.name === product.name
+                            (prod) =>
+                              prod.selectedColor === product.selectedColor
                           ).selectedColor === i
                         ? "background"
                         : ""

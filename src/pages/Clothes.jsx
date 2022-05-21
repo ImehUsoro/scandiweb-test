@@ -28,7 +28,9 @@ export class Clothes extends Component {
                 </div>
               </StyledLink>
               <StyledLink to={`/product/${product.id}`}>
-                <p className="product-name">{product.name}</p>
+                <p className="product-name">
+                  {product.brand} {product.name}
+                </p>
                 {product.prices
                   .filter(
                     (item) => item.currency.symbol === this.props.currency

@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const ProductStyle = styled.div`
-  max-width: 12rem;
+  span {
+    font-weight: 400;
+  }
   & .product-name-bold {
     font-size: 1.875rem;
     line-height: 2.5rem;
-    font-weight: 400;
+    font-weight: 600;
   }
   & .cart-product-name {
     margin-bottom: 1.25rem;

@@ -29,7 +29,13 @@ export class CartModal extends Component {
     }
   }
   render() {
-    const { currency, selectedProducts, setSelectedProducts } = this.props;
+    const {
+      currency,
+      selectedProducts,
+      setSelectedProducts,
+      currentProduct,
+      setCurrentProduct,
+    } = this.props;
 
     return (
       <CartModalStyles>
@@ -47,8 +53,10 @@ export class CartModal extends Component {
           <div className="cart-item">
             {selectedProducts?.map((product) => (
               <CartItemModal
-                key={product.name}
+                key={product.selectedSize}
                 product={product}
+                currentProduct={currentProduct}
+                setCurrentProduct={setCurrentProduct}
                 selectedProducts={selectedProducts}
                 setSelectedProducts={setSelectedProducts}
               />

@@ -4,12 +4,44 @@ import { SizesStyles } from "../styles/SizesStyle";
 export class Sizes extends Component {
   constructor(props) {
     super(props);
-    this.state = { id: "" };
+    this.state = { id: 0 };
   }
+  // Function that creates an object for the product displayed when mounted
+  componentDidMount = () => {
+    if (this.props.loading) {
+    } else {
+      const product = this.props.all?.find(
+        (item) => item.id === this.props.params.id
+      );
 
+      // Creates an object from found item
+      const productDetails = {
+        name: this.props.product.name,
+        brand: this.props.product.brand,
+        prices: this.props.product.prices,
+        attributes: this.props.product.attributes,
+        images: this.props.product.gallery,
+        amount: 1,
+        selectedSize: 0,
+        selectedColor: 0,
+      };
+      this.props.setCurrentProduct(productDetails);
+    }
+  };
   render() {
-    const { modal, cart, pdp, product, selectedProducts, setSelectedProducts } =
-      this.props;
+    const {
+      modal,
+      cart,
+      pdp,
+      product,
+      selectedProducts,
+      setSelectedProducts,
+      currentProduct,
+      setCurrentProduct,
+    } = this.props;
+
+    console.log(currentProduct);
+    console.log(selectedProducts);
 
     return (
       <SizesStyles>
@@ -38,13 +70,10 @@ export class Sizes extends Component {
                     ref={this.sizeRef}
                     onClick={() => {
                       this.setState({ id: i });
-                      setSelectedProducts((prev) =>
-                        prev.map((prod) =>
-                          prod.name === product.name
-                            ? { ...prod, selectedSize: i }
-                            : prod
-                        )
-                      );
+                      setCurrentProduct((prev) => ({
+                        ...prev,
+                        selectedSize: i,
+                      }));
                     }}
                     className={
                       pdp
@@ -52,7 +81,7 @@ export class Sizes extends Component {
                           ? "background"
                           : ""
                         : selectedProducts.find(
-                            (prod) => prod.name === product.name
+                            (prod) => prod.selectedSize === product.selectedSize
                           ).selectedSize === i
                         ? "background"
                         : ""

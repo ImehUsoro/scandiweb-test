@@ -8,7 +8,13 @@ import Sizes from "./Sizes";
 
 export class CartItemModal extends Component {
   render() {
-    const { product, selectedProducts, setSelectedProducts } = this.props;
+    const {
+      product,
+      selectedProducts,
+      setSelectedProducts,
+      currentProduct,
+      setCurrentProduct,
+    } = this.props;
 
     return (
       <CartItemModalStyles>
@@ -25,6 +31,8 @@ export class CartItemModal extends Component {
           ) && (
             <Sizes
               modal
+              currentProduct={currentProduct}
+              setCurrentProduct={setCurrentProduct}
               product={product}
               selectedProducts={selectedProducts}
               setSelectedProducts={setSelectedProducts}

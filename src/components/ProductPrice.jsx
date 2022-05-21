@@ -24,15 +24,7 @@ export class ProductPrice extends Component {
                 className={`${modal ? "modal-amount" : "amount"}`}
               >
                 {currency}
-                {pdp
-                  ? value.amount
-                  : Math.round(
-                      value.amount *
-                        selectedProducts?.find(
-                          (prod) => prod.name === product.name
-                        ).amount *
-                        100
-                    ) / 100}
+                {value.amount}
               </span>
             ))}
         </div>

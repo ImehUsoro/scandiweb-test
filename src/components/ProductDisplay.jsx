@@ -74,7 +74,7 @@ export class ProductDisplay extends Component {
         <div className="image-section">
           {
             <img
-              src={product?.images[this.state.count]}
+              src={product?.images?.[this.state.count]}
               alt=""
               className={`${modal ? "modal-image" : "main"}`}
             />

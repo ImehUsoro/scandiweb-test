@@ -5,7 +5,12 @@ import { CartStyle } from "../styles/CartStyle";
 
 export class Cart extends Component {
   render() {
-    const { selectedProducts, setSelectedProducts } = this.props;
+    const {
+      selectedProducts,
+      setSelectedProducts,
+      currentProduct,
+      setCurrentProduct,
+    } = this.props;
 
     return (
       <CartStyle>
@@ -17,11 +22,14 @@ export class Cart extends Component {
         {selectedProducts?.map((product, id) => (
           <CartItem
             product={product}
-            key={id}
+            key={product.selectedSize}
+            currentProduct={currentProduct}
+            setCurrentProduct={setCurrentProduct}
             selectedProducts={selectedProducts}
             setSelectedProducts={setSelectedProducts}
           />
         ))}
+
         {selectedProducts.length === 0 ? null : (
           <Total
             selectedProducts={selectedProducts}

@@ -11,5 +11,6 @@ export const CartItemStyle = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    pointer-events: none;
   }
 `;

@@ -4,6 +4,7 @@ export const PDPstyle = styled.section`
   display: flex;
   padding-top: 5rem;
   margin-bottom: 4.5rem;
+
   p {
     margin: 0;
   }
@@ -28,6 +29,11 @@ export const PDPstyle = styled.section`
     flex-direction: column;
     gap: 2.5rem;
     margin-right: 2.5rem;
+    max-height: 23rem;
+    /* overflow-y: visible; */
+  }
+  & .product-display {
+    /* overflow-y: scroll; */
   }
   & .product-display img {
     cursor: pointer;

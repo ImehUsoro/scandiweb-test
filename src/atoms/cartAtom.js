@@ -10,6 +10,11 @@ export const itemsInCartState = atom({
   default: 0,
 });
 
+export const currentProductState = atom({
+  key: "productToBeSelected",
+  default: {},
+});
+
 export const selectedProductsState = atom({
   key: "selectedProductsState",
   default: [],
