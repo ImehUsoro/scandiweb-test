@@ -28,7 +28,25 @@ export class PDP extends Component {
   // Finds that adds items to selected items
   pushToSelected = () => {
     this.props.setSelectedProducts((prev) => {
-      return [...prev, this.props.currentProduct];
+      if (
+        this.props.selectedProducts.find(
+          (prod) =>
+            prod.name === this.props.currentProduct.name &&
+            prod.selectedSize === this.props.currentProduct.selectedSize
+        )
+      ) {
+        prev.map((prod) => {
+          if (
+            prod.name === this.props.currentProduct.name &&
+            prod.selectedSize === this.props.currentProduct.selectedSize
+          ) {
+            return [...prev, { ...prod, selectedColor: prod.selectedSize++ }];
+          }
+          return [...prev];
+        });
+      } else {
+        return [...prev, this.props.currentProduct];
+      }
     });
   };
 
@@ -43,6 +61,7 @@ export class PDP extends Component {
       setCurrentProduct,
     } = this.props;
 
+    console.log(currentProduct);
     if (loading) {
       return <h1>Loading..</h1>;
     }
@@ -129,25 +148,23 @@ export class PDP extends Component {
 
 export default withParams(PDP);
 
-//  componentDidMount = () => {
-//    if (this.props.loading) {
-//    } else {
-//      const product = this.props.all?.find(
-//        (item) => item.id === this.props.params.id
-//      );
-
-//      // Creates an object from found item
-//      const productDetails = {
-//        name: product?.name,
-//        brand: product?.brand,
-//        prices: product?.prices,
-//        attributes: product?.attributes,
-//        images: product?.gallery,
-//        amount: 1,
-//        selectedSize: 0,
-//        selectedColor: 0,
-//      };
-
-//      this.props.setCurrentProduct(productDetails);
-//    }
-//  };
+// pushToSelected = () => {
+//   this.props.setSelectedProducts((prev) => {
+//     if (
+//       this.props.selectedProducts.find(
+//         (prod) =>
+//           prod.name === this.props.currentProduct.name &&
+//           prod.selectedSize === this.props.currentProduct.selectedSize
+//       )
+//     ) {
+//       prev.map((prod) =>
+//         prod.name === this.props.currentProduct.name &&
+//         prod.selectedSize === this.props.currentProduct.selectedSize
+//           ? { ...prod, selectedColor: prod.selectedSize++ }
+//           : null
+//       );
+//     } else {
+//       return [...prev, this.props.currentProduct];
+//     }
+//   });
+// };

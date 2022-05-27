@@ -40,9 +40,6 @@ export class Sizes extends Component {
       setCurrentProduct,
     } = this.props;
 
-    console.log(currentProduct);
-    console.log(selectedProducts);
-
     return (
       <SizesStyles>
         <div
