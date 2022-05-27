@@ -35,20 +35,47 @@ export class PDP extends Component {
             prod.selectedSize === this.props.currentProduct.selectedSize
         )
       ) {
-        prev.map((prod) => {
-          if (
-            prod.name === this.props.currentProduct.name &&
-            prod.selectedSize === this.props.currentProduct.selectedSize
-          ) {
-            return [...prev, { ...prod, selectedColor: prod.selectedSize++ }];
-          }
-          return [...prev];
-        });
+        prev
+          .filter(
+            (prod) =>
+              prod.name === this.props.currentProduct.name &&
+              prod.selectedSize === this.props.currentProduct.selectedSize
+          )[0]
+          .map((item) =>
+            item.name === this.props.currentProduct.name &&
+            item.selectedSize === this.props.currentProduct.selectedSize
+              ? [...prev, { ...item, amount: item.amount++ }]
+              : null
+          );
       } else {
         return [...prev, this.props.currentProduct];
       }
     });
   };
+
+  // option 2
+
+  // this.props.setSelectedProducts((prev) => {
+  //   if (
+  // this.props.selectedProducts.find(
+  //   (prod) =>
+  //     prod.name === this.props.currentProduct.name &&
+  //     prod.selectedSize === this.props.currentProduct.selectedSize
+  //     )
+  //   ) {
+  //     prev.map((prod) => {
+  //       if (
+  //         prod.name === this.props.currentProduct.name &&
+  //         prod.selectedSize === this.props.currentProduct.selectedSize
+  //       ) {
+  //         return [...prev, { ...prod, amount: prod.amount++ }];
+  //       }
+  //       return [...prev];
+  //     });
+  //   } else {
+  //     return [...prev, this.props.currentProduct];
+  //   }
+  // });
 
   render() {
     const { id } = this.props.params;
