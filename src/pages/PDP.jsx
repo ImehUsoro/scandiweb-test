@@ -27,55 +27,27 @@ export class PDP extends Component {
 
   // Finds that adds items to selected items
   pushToSelected = () => {
-    this.props.setSelectedProducts((prev) => {
-      if (
-        this.props.selectedProducts.find(
-          (prod) =>
-            prod.name === this.props.currentProduct.name &&
-            prod.selectedSize === this.props.currentProduct.selectedSize
+    if (
+      this.props.selectedProducts.find(
+        (prod) =>
+          prod.name === this.props.currentProduct.name &&
+          prod.selectedSize === this.props.currentProduct.selectedSize
+      )
+    ) {
+      console.log("already in cart");
+      this.props.setSelectedProducts((prev) =>
+        prev.map((item) =>
+          item.selectedSize === this.props.currentProduct.selectedSize
+            ? { ...item, amount: item.amount + 1 }
+            : { ...item }
         )
-      ) {
-        prev
-          .filter(
-            (prod) =>
-              prod.name === this.props.currentProduct.name &&
-              prod.selectedSize === this.props.currentProduct.selectedSize
-          )[0]
-          .map((item) =>
-            item.name === this.props.currentProduct.name &&
-            item.selectedSize === this.props.currentProduct.selectedSize
-              ? [...prev, { ...item, amount: item.amount++ }]
-              : null
-          );
-      } else {
+      );
+    } else {
+      this.props.setSelectedProducts((prev) => {
         return [...prev, this.props.currentProduct];
-      }
-    });
+      });
+    }
   };
-
-  // option 2
-
-  // this.props.setSelectedProducts((prev) => {
-  //   if (
-  // this.props.selectedProducts.find(
-  //   (prod) =>
-  //     prod.name === this.props.currentProduct.name &&
-  //     prod.selectedSize === this.props.currentProduct.selectedSize
-  //     )
-  //   ) {
-  //     prev.map((prod) => {
-  //       if (
-  //         prod.name === this.props.currentProduct.name &&
-  //         prod.selectedSize === this.props.currentProduct.selectedSize
-  //       ) {
-  //         return [...prev, { ...prod, amount: prod.amount++ }];
-  //       }
-  //       return [...prev];
-  //     });
-  //   } else {
-  //     return [...prev, this.props.currentProduct];
-  //   }
-  // });
 
   render() {
     const { id } = this.props.params;
@@ -88,7 +60,7 @@ export class PDP extends Component {
       setCurrentProduct,
     } = this.props;
 
-    console.log(currentProduct);
+    console.log(selectedProducts);
     if (loading) {
       return <h1>Loading..</h1>;
     }
