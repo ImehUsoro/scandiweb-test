@@ -34,6 +34,10 @@ export class PDP extends Component {
           prod.selectedSize === this.props.currentProduct.selectedSize
       )
     ) {
+<<<<<<< HEAD
+=======
+      console.log("already in cart");
+>>>>>>> 2e9e9b43ef0b819c034693c41b72bf40e5460d36
       this.props.setSelectedProducts((prev) =>
         prev.map((item) =>
           item.selectedSize === this.props.currentProduct.selectedSize
@@ -59,11 +63,7 @@ export class PDP extends Component {
       setCurrentProduct,
     } = this.props;
 
-    // console.log(currentProduct);
-    if (loading) {
-      return <h1>Loading..</h1>;
     }
-    return (
       <>
         {all
           ?.filter((item) => item.id === id)
