@@ -18,8 +18,15 @@ export class Products extends Component {
     this.props.setCategory(this.props.params.category);
   }
 
+  pushItemToCart = (prod) => {
+    this.props.setSelectedProducts((prev) => {
+      console.log(prod);
+      return [...prev, prod];
+    });
+  };
+
   render() {
-    const { all, clothes, tech } = this.props;
+    const { all, clothes, tech, loading } = this.props;
     let { category } = this.props.params;
 
     return (
@@ -27,13 +34,29 @@ export class Products extends Component {
         <Heading name={category} />
         <GridContainer>
           {category === "all" ? (
-            <AllProducts all={all} />
+            <AllProducts
+              all={all}
+              loading={loading}
+              pushItemToCart={this.pushItemToCart}
+            />
           ) : category === "clothes" ? (
-            <Clothes clothes={clothes} />
+            <Clothes
+              clothes={clothes}
+              loading={loading}
+              pushItemToCart={this.pushItemToCart}
+            />
           ) : category === "tech" ? (
-            <Tech tech={tech} />
+            <Tech
+              tech={tech}
+              loading={loading}
+              pushItemToCart={this.pushItemToCart}
+            />
           ) : (
-            <AllProducts all={all} />
+            <AllProducts
+              all={all}
+              loading={loading}
+              pushItemToCart={this.pushItemToCart}
+            />
           )}
         </GridContainer>
       </>

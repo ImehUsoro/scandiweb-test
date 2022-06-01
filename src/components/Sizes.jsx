@@ -22,12 +22,13 @@ export class Sizes extends Component {
         attributes: this.props.product.attributes,
         images: this.props.product.gallery,
         amount: 1,
-        selectedSize: 0,
+        selectedSize: this.state.id,
         selectedColor: 0,
       };
       this.props.setCurrentProduct(productDetails);
     }
   };
+
   render() {
     const {
       modal,

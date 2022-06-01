@@ -12,16 +12,21 @@ function withCurrency(Component) {
 
 export class AllProducts extends Component {
   render() {
-    const { all } = this.props;
+    const { all, loading, pushItemToCart } = this.props;
 
     return (
       <>
         {all?.products.map((product) => (
           <ProductCardStyle key={product.id}>
             <div className={!product.inStock ? "no-stock" : ""}>
-              <StyledLink to={`/product/${product.id}`}>
-                <img className="icon" src={cart} alt="" />
-              </StyledLink>
+              <div>
+                <img
+                  className="icon"
+                  src={cart}
+                  alt=""
+                  onClick={() => pushItemToCart(product)}
+                />
+              </div>
               {!product.inStock && <p className="out-of-stock">OUT OF STOCK</p>}
               <StyledLink to={`/product/${product.id}`}>
                 <div className="product-image">

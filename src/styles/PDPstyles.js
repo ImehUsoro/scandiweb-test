@@ -30,11 +30,9 @@ export const PDPstyle = styled.section`
     gap: 2.5rem;
     margin-right: 2.5rem;
     max-height: 23rem;
-    /* overflow-y: visible; */
+    overflow: auto;
   }
-  & .product-display {
-    /* overflow-y: scroll; */
-  }
+
   & .product-display img {
     cursor: pointer;
     width: 5rem;
